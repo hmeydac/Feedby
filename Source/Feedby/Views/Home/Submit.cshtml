@@ -1,0 +1,24 @@
+﻿@{
+    ViewBag.Title = "Submit";
+}
+
+<div id="main-container" class="submit-form">
+    <fieldset>
+        <legend>Submit Feedback</legend>
+        <label>Select a person:</label>
+        <input id="peopleText" type="text" />
+        <label>Feedback date:</label>
+        <input id="feedbackDate" type="text" />
+    </fieldset>
+</div>
+<div id="timeline-container"></div>
+
+
+@section scripts{
+        <script src="~/Scripts/app.js"></script>
+    <script src="~/Scripts/controllers/submit.controller.js"></script>
+    <script type="text/javascript">
+        var controller = new Feedby.SubmitFeedbackController($("#timeline-container"), $("#peopleText"), $("#feedbackDate"));
+        controller.init();
+    </script>
+}

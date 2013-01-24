@@ -1,0 +1,14 @@
+﻿@{
+    ViewBag.Title = "Feedby";
+}
+
+<div id="main-container"></div>
+
+@section scripts{
+    <script src="~/Scripts/app.js"></script>
+    <script src="~/Scripts/controllers/timeline.controller.js"></script>
+    <script type="text/javascript">
+        var controller = new Feedby.TimelineController($("#main-container"));
+        controller.init();
+    </script>
+}
