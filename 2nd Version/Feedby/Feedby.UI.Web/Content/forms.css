@@ -13,7 +13,6 @@
     display: block;
     color: rgb(150, 150, 150);
     margin-left: 5px;
-    
 }
 
 .input {
@@ -39,14 +38,21 @@
     margin-right: 0;
 }
 
-.choice-list li {
+.choice-list div {
     display: inline-block;
     padding-top: 5px;
     padding-bottom: 5px;
     margin: 0;
     width: 75px;
     text-align: center;
+    background-color: rgb(225, 225, 225);
+    color: rgb(150,150,150);
+    line-height: 20px;
 }
+
+    .choice-list div:hover {
+        cursor: pointer;
+    }
 
 .item-left {
     border-radius: 10px 0 0 10px;
@@ -55,5 +61,29 @@
 .item-right {
     border-radius: 0 10px 10px 0;
 }
+
+.button-red:hover {
+    background-color: rgb(180, 0, 0);
+    color: white;
+}
+
+.button-green:hover {
+    background-color: rgb(0, 180, 0);
+    color: white;
+}
+
+.button-orange:hover {
+    background-color: rgb(210, 170, 15);
+    color: white;
+}
+
+.button-blue {
+    background-color: rgb(30, 160, 215);
+    color: white;
+    border: none;
+    text-transform: uppercase;
+    padding: 10px;
+}
+
 /* Colors */
 

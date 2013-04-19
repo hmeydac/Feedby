@@ -4,10 +4,16 @@
     position: relative;
 }
 
+.reviews div {
+    
+}
+
 .review-header
 {
+    
     left: 0;
     margin-top: 5px;
+    
 }
 
 .review-title
