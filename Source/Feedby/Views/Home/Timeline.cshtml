@@ -3,69 +3,76 @@
 @{
     if (this.Model == null || this.Model.Count == 0)
     {
-        <div class="timeline-container">No records found.</div>
+    <div class="timeline-container">No records found.</div>
     }
     else
     {
-        <div>
-            <div class="timeline-sidebar">
-                <ul class="nav nav-list affix">
-                    @{
-                        <li><b>Weeks</b></li>
-                        var index = 0;
-                        foreach (var review in this.Model)
-                        {
-                            if (index != 0)
-                            {
-                                <li><a href="#@review.WeekYear">@review.WeekYear</a></li>
-                            }
-                            else
-                            {
-                                <li><a  href="#@review.WeekYear">@review.WeekYear</a></li>
-                            }
+    <div>
+        <div class="timeline-sidebar">
+            <ul class="nav nav-list affix">
+                @{
+                    <li><b>Weeks</b></li>
+        var index = 0;
+        foreach (var review in this.Model)
+        {
+            if (index != 0)
+            {
+                    <li><a href="#@review.WeekYear">@review.WeekYear</a></li>
+            }
+            else
+            {
+                    <li><a  href="#@review.WeekYear">@review.WeekYear</a></li>
+            }
 
-                            index++;
-                        }
-                    }
-                </ul>
-            </div>
-            @{
-                foreach (var review in this.Model)
-                {
-                    <section id="@review.WeekYear">
-                        <div class="timeline-container">
-                            <div class="timeline">
-                                <div id="@review.WeekYear" class="left">@review.WeekYear</div>
-                                <div>
-                                    <span>Total:</span>
-                                    @{
-                                        var types = review.Feedbacks.GroupBy(f => f.FeedbackType);
-                                        foreach (var group in types)
-                                        {
-                                            <span class="label @group.Key.ClassName">@group.Key.Description</span>
-                                            <span>@group.Count()</span>
-                                        }
+            index++;
+        }
+                }
+            </ul>
+        </div>
+        @{
+        foreach (var review in this.Model)
+        {
+            <section id="@review.WeekYear">
+                <div class="timeline-container">
+                    <div class="timeline">
+                        <div id="@review.WeekYear" class="left">@review.WeekYear</div>
+                        <div>
+                            <span>Total:</span>
+                            @{
+            var types = review.Feedbacks.GroupBy(f => f.FeedbackType);
+            foreach (var group in types)
+            {
+                                <span class="label @group.Key.ClassName">@group.Key.Description</span>
+                                <span>@group.Count()</span>
+            }
+                            }
+                        </div>
+                        @{
+            var submitters = review.Feedbacks.GroupBy(r => r.SubmittedBy);
+            foreach (var submitter in submitters)
+            {
+                            <div class="right">
+                                <div class="feedback-content">
+                                    <span class="feedback-title">by @submitter.Key.FullName</span>
+                                    @foreach (var feedback in review.Feedbacks)
+                                    {
+                                        <div class="feedback-header feedback-body">
+                                            <span class="label @feedback.FeedbackType.ClassName">@feedback.FeedbackType.Description</span>
+                                            <span>@feedback.Text</span>
+                                        </div>
+                                        <div class="">
+                                            
+                                        </div>
                                     }
                                 </div>
-                                @foreach (var feedback in review.Feedbacks)
-                                {
-                                    <div class="right">
-                                        <div class="feedback-content">
-                                            <div class="feedback-header">
-                                                <span class="label @feedback.FeedbackType.ClassName">@feedback.FeedbackType.Description</span>
-                                                <span class="feedback-title">by @feedback.SubmittedBy.FullName</span>
-                                            </div>
-                                            <div class="feedback-body">
-                                                <span>@feedback.Text</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                }
                             </div>
-                        </div>
-                    </section>
-                }
             }
-        </div>
+                        }
+                    </div>
+                </div>
+            </section>
+        }
+        }
+    </div>
     }
 }

@@ -136,6 +136,7 @@
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\Feedback.cs" />
     <Compile Include="Models\FeedbackType.cs" />
+    <Compile Include="Models\MainMenu.cs" />
     <Compile Include="Models\Review.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

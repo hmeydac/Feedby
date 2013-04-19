@@ -12,6 +12,7 @@ jQuery.extend(Feedby.SubmitFeedbackController.prototype, {
     init: function () {
         this.initAutocomplete();
         this.initCalendar();
+        $(".loading-indicator").hide();
     },
 
     initAutocomplete: function () {

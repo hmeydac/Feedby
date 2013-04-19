@@ -2,6 +2,10 @@
     ViewBag.Title = "Feedby";
 }
 
+@section menu{        
+    @Html.Partial("NavigationHeader", new Feedby.Models.MainMenu { Current = "Home" })
+}
+
 <div id="main-container"></div>
 
 @section scripts{

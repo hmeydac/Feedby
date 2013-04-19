@@ -2,6 +2,10 @@
     ViewBag.Title = "Submit";
 }
 
+@section menu{
+    @Html.Partial("NavigationHeader", new Feedby.Models.MainMenu { Current = "Submit" })
+}
+
 <div id="main-container" class="submit-form">
     <fieldset>
         <legend>Submit Feedback</legend>

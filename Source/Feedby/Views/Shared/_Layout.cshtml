@@ -13,7 +13,7 @@
     @Scripts.Render("~/bundles/bootstrap")
 </head>
 <body data-spy="scroll" data-target=".timeline-sidebar">
-    @Html.Partial("NavigationHeader")
+    @RenderSection("menu", required:true)
     @RenderBody()
     <div class="loading-indicator">
         <img src="~/Content/images/loading.gif" />

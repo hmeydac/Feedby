@@ -1,0 +1,118 @@
+﻿.reviews
+{
+    width: 550px;
+    position: relative;
+}
+
+.review-header
+{
+    left: 0;
+    margin-top: 5px;
+}
+
+.review-title
+{
+    font-size: 10pt;
+    font-weight: 100;
+    padding: 5px 5px 5px 15px;
+    width: 100px;
+    font-weight: normal;
+}
+
+.review-text div
+{
+    border-bottom: 1px solid rgb(200,200,200);
+    padding: 15px 10px 15px 10px;
+    color: rgb(75, 75, 75);
+}
+
+.week
+{
+    display: inline-block;
+    text-align: center;
+    width: 550px;
+}
+
+    .week div
+    {
+        display: inline;
+        font-size: 16pt;
+        color: rgb(25, 25, 25);
+        line-height: 30px;
+        vertical-align: middle;
+    }
+
+.week-icon
+{
+    width: 24px;
+    height: 24px;
+    line-height: 24px;
+    vertical-align: middle;
+}
+
+.arrow-icon
+{
+    width: 20px;
+    height: 20px;
+    line-height: 30px;
+    vertical-align: middle;
+}
+
+.flip-icon
+{
+    -moz-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: FlipH;
+    -ms-filter: "FlipH";
+}
+
+/* Colors */
+.lightred
+{
+    background-color: rgba(255, 0, 0, 0.1);
+}
+
+.lightgreen
+{
+    background-color: rgba(0, 255, 0, 0.1);
+}
+
+.lightorange
+{
+    background-color: rgba(210, 175, 15, 0.2);
+}
+
+.red
+{
+    background-color: rgb(180,0,0);
+    color: white;
+}
+
+.green
+{
+    background-color: rgb(0, 180,0);
+    color: white;
+}
+
+.orange
+{
+    background-color: rgb(210, 170, 15);
+    color: white;
+}
+
+.border-red div
+{
+    border-left: 3px solid rgb(180, 0, 0);
+}
+
+.border-green div
+{
+    border-left: 3px solid rgb(0, 180, 0);
+}
+
+.border-orange div
+{
+    border-left: 3px solid rgb(210, 170, 15);
+}

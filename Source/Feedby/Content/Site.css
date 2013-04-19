@@ -73,13 +73,20 @@
 .feedback-header
 {    
     padding: 2px;
-    border-bottom: solid 1px blue;
+    border-bottom: solid 1px rgb(106, 196,206);
+}
+
+.feedback-header:nth-last-of-type(1)
+{    
+    padding: 2px;
+    border-bottom: none;
 }
 
 .feedback-title
 {
     font-size: 12px;
-    font-weight:bold;
+    font-weight:100;
+    
 }
 
 .feedback-body
