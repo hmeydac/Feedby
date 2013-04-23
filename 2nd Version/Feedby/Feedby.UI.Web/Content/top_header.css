@@ -3,13 +3,47 @@
     background-color: rgb(35,35,35);
     color: white;
     height: 50px;
-    line-height: 50px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
+    position: relative;
+}
+
+.profile {
     display: inline-block;
 }
+
+.login-content {
+    position: absolute;
+    right: 25px;
+    top: 0;
+}
+
+.login-section
+{
+    display: table-cell;
+    vertical-align: middle;
+    height: 50px;
+    text-align: right;
+}
+
+.login-name{
+    display: inline-block;
+    color: white;
+}
+
+.avatar {
+    display: inline-block;
+}
+
+.avatar-image {
+    display: inline-block;
+    height: 50px;
+}
+
+.login-name a {
+    display: block;
+    color: white;
+    font-size: 8pt;
+}
+
 
 .brand
 {
@@ -17,4 +51,7 @@
     font-weight: 100;
     vertical-align: middle;
     margin-left: 15px;
+    max-width: 350px;
+    display: inline;
+    
 }

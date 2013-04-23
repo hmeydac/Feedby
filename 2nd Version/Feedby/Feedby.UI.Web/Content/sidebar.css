@@ -1,0 +1,21 @@
+﻿.sidebar {
+    width: 300px;
+    background-color: rgb(240, 240, 240);
+    position: absolute;
+    bottom: 0;
+    top: 50px;
+    padding-top: 15px;
+    padding-left: 15px;
+}
+
+.sidebar-title {
+    font-size: 24pt;
+    color: rgb(70, 70, 70);
+}
+
+
+.sidebar-subtitle {
+    margin-top: 10px;
+    color: rgb(138, 138, 138);
+    font-size: 10pt;
+}

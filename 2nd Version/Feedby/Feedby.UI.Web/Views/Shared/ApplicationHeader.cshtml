@@ -1,0 +1,23 @@
+﻿@using Feedby.UI.Web.Models
+@{
+    var userProfile = Session[DomainConstants.UserProfile] as UserProfileModel;
+}
+<div class="nav-header">
+    <div class="brand">Feedby</div>
+    @if (userProfile != null)
+    {
+        <div class="login-content">
+            <div class="profile">
+                <div class="login-section">
+                    <div class="login-name">
+                        <div>@userProfile.FullName</div>
+                        <a href="#">sign out</a>
+                    </div>
+                </div>
+            </div>
+            <div class="avatar">
+                <img class="avatar-image" src="~/Content/Images/jarguello.jpg" />
+            </div>
+        </div>
+    }
+</div>
