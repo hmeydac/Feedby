@@ -7,15 +7,15 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
-<body>
-    @{
-        this.Html.RenderPartial("ApplicationHeader");
-    }
-    <div>
-        @RenderBody()
-    </div>
+    <body>
+        @{
+            this.Html.RenderPartial("ApplicationHeader");
+        }
+        <div class="main-content">
+            @RenderBody()
+        </div>
 
-    @Scripts.Render("~/bundles/jquery")
-    @RenderSection("scripts", required: false)
-</body>
+        @Scripts.Render("~/bundles/jquery")
+        @RenderSection("scripts", required: false)
+    </body>
 </html>

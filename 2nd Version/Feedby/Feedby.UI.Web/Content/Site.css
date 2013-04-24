@@ -13,3 +13,50 @@ h1 {
     margin-bottom: 10px;
 }
 
+.title
+{
+    font-size: 24pt;
+    color: rgb(70, 70, 70);
+}
+
+.subtitle {
+    font-size: 16pt;
+    color: rgb(100, 100, 100);
+}
+
+.underline {
+    padding: 5px 0;
+    border-bottom: 2px solid rgb(200, 200, 200);
+}
+
+.small-title {
+    font-size: 10pt;
+    font-weight: bold;
+    color: rgb(70, 70, 70);
+    margin-bottom: 5px;
+}
+
+.main-content {
+    display: table-cell;
+    position: absolute;
+    top: 50px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+input {
+    border: 1px solid rgb(200, 200, 200);
+    font-family: 'Segoe UI';
+    font-weight: 100;
+    padding: 5px;
+}
+
+.main-section {
+    position: absolute;
+    left: 265px;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    padding: 15px;
+}

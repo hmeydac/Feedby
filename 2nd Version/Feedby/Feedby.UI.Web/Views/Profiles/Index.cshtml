@@ -1,6 +1,20 @@
 ﻿@{
     ViewBag.Title = "Index";
 }
+
 @{
     this.Html.RenderPartial("ProfilesSideBar");
 }
+
+<section class="main-section">
+    <div class="title">Active Profiles</div>
+    @using (Html.BeginForm("Search", "Profiles", FormMethod.Post))
+    { 
+        <div class="filter-panel">
+            <div class="small-title">Search for</div>
+            <input type="search" name="argument" placeholder="Who are you looking for?" />
+            <input type="submit" value="Search" />
+        </div>
+    }
+    <div id="profileResults"></div>
+</section>
