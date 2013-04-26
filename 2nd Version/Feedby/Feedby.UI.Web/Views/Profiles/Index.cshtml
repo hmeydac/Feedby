@@ -8,13 +8,35 @@
 
 <section class="main-section">
     <div class="title">Active Profiles</div>
-    @using (Html.BeginForm("Search", "Profiles", FormMethod.Post))
-    { 
+   <form id="search">
         <div class="filter-panel">
             <div class="small-title">Search for</div>
             <input type="search" name="argument" placeholder="Who are you looking for?" />
             <input type="submit" value="Search" />
         </div>
-    }
-    <div id="profileResults"></div>
+    </form>
+    <div class="loading-indicator hide">
+
+
+    </div> 
+    <div id="profileResults">
+        
+    </div>
 </section>
+
+
+
+@section scripts{
+    <script src="~/Scripts/app.js"></script>
+    <script src="~/Scripts/controllers/search.controller.js"></script>
+    <script type="text/javascript">
+        var controller = new Feedby.SearchController($("#profileResults"));
+
+        $('#search').submit(function () {
+            controller.search($('input[type=search]').val());
+            return false;
+        });
+
+       
+    </script>
+}

@@ -60,3 +60,11 @@ input {
     right: 0;
     padding: 15px;
 }
+
+.hide {
+    display:none;
+}
+
+.loading-indicator{
+
+}
