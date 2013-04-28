@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<layerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="77b3f5e9-6987-47df-8050-02ae06b2c868" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/LayerDesigner">
+  <layers>
+    <layer Id="d30852f7-b234-498b-9b75-3b8e08cfec15" name="Domain">
+      <references>
+        <reference Id="6d2d0e91-0f11-4cd3-872b-7221a603103f" name="Domain">
+          <ArtifactNode Label="Domain" Category="CodeSchema_ProjectItem" Id="(Assembly=../Feedby.Infrastructure/Feedby.Infrastructure.csproj File=../Feedby.Infrastructure/Domain/)">
+            <Category Ref="ProjectFolder" />
+          </ArtifactNode>
+          <ExpandedNode Id="(Assembly=Feedby.Infrastructure Namespace=Feedby.Infrastructure.Domain Type=UserBio)" Label="UserBio" Category="CodeSchema_Class">
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+          <ExpandedNode Id="(Assembly=Feedby.Infrastructure Namespace=Feedby.Infrastructure.Domain Type=UserProfile)" Label="UserProfile" Category="CodeSchema_Class">
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+        </reference>
+      </references>
+    </layer>
+    <layer Id="77c6b197-25c9-44b4-a289-813d9254d224" name="Web Application">
+      <childLayers>
+        <layer Id="845d08fc-fa71-4da7-89c8-b79a59ea1fe1" name="ViewModels">
+          <references>
+            <reference Id="ec88631c-c0a5-4bff-90ef-4a1b8a8d8cc4" name="Models">
+              <ArtifactNode Label="Models" Category="CodeSchema_ProjectItem" Id="(Assembly=../Feedby.UI.Web/Feedby.UI.Web.csproj File=../Feedby.UI.Web/Models/)">
+                <Category Ref="ProjectFolder" />
+              </ArtifactNode>
+              <ExpandedNode Id="(Assembly=Feedby.UI.Web Namespace=Feedby.UI.Web.Models Type=DomainConstants)" Label="DomainConstants" Category="CodeSchema_Class">
+                <LinkCategory Ref="Represents" />
+              </ExpandedNode>
+              <ExpandedNode Id="(Assembly=Feedby.UI.Web Namespace=Feedby.UI.Web.Models Type=UserProfileModel)" Label="UserProfileModel" Category="CodeSchema_Class">
+                <LinkCategory Ref="Represents" />
+              </ExpandedNode>
+            </reference>
+          </references>
+        </layer>
+        <layer Id="fb3105cd-7d60-4475-a6c6-969dcf93a586" name="Controllers">
+          <dependencyToLayers>
+            <dependencyFromLayerToLayer Id="712f82bd-3577-4ff4-b890-7e3fce2e7b0f" direction="Forward">
+              <layerMoniker Id="845d08fc-fa71-4da7-89c8-b79a59ea1fe1" />
+            </dependencyFromLayerToLayer>
+            <dependencyFromLayerToLayer Id="5e29ac85-f855-4eb1-89eb-b1cdcc09b02a" direction="Forward">
+              <layerMoniker Id="64d3c602-9e68-4c5b-8ff6-bddabeac7490" />
+            </dependencyFromLayerToLayer>
+            <dependencyFromLayerToLayer Id="9a162975-e667-4aaa-88f5-1b3cc380f175" direction="Forward">
+              <layerMoniker Id="d30852f7-b234-498b-9b75-3b8e08cfec15" />
+            </dependencyFromLayerToLayer>
+          </dependencyToLayers>
+          <references>
+            <reference Id="9c386fdd-be9f-40c1-a961-99dbabc27036" name="Controllers">
+              <ArtifactNode Label="Controllers" Category="CodeSchema_ProjectItem" Id="(Assembly=../Feedby.UI.Web/Feedby.UI.Web.csproj File=../Feedby.UI.Web/Controllers/)">
+                <Category Ref="ProjectFolder" />
+              </ArtifactNode>
+              <ExpandedNode Id="(Assembly=Feedby.UI.Web Namespace=Feedby.UI.Web.Controllers Type=HomeController)" Label="HomeController" Category="CodeSchema_Class">
+                <LinkCategory Ref="Represents" />
+              </ExpandedNode>
+              <ExpandedNode Id="(Assembly=Feedby.UI.Web Namespace=Feedby.UI.Web.Controllers Type=ProfilesController)" Label="ProfilesController" Category="CodeSchema_Class">
+                <LinkCategory Ref="Represents" />
+              </ExpandedNode>
+              <ExpandedNode Id="(Assembly=Feedby.UI.Web Namespace=Feedby.UI.Web.Controllers Type=ValuesController)" Label="ValuesController" Category="CodeSchema_Class">
+                <LinkCategory Ref="Represents" />
+              </ExpandedNode>
+            </reference>
+          </references>
+        </layer>
+      </childLayers>
+    </layer>
+    <layer Id="89a17637-d73e-4c63-8daa-5af8f091ea9f" name="Infrastructure">
+      <childLayers>
+        <layer Id="64d3c602-9e68-4c5b-8ff6-bddabeac7490" name="Services">
+          <dependencyToLayers>
+            <dependencyFromLayerToLayer Id="96795e46-df19-476a-b550-6c4add2bd8b0" direction="Forward">
+              <layerMoniker Id="d30852f7-b234-498b-9b75-3b8e08cfec15" />
+            </dependencyFromLayerToLayer>
+            <dependencyFromLayerToLayer Id="588abc29-a3c6-4eaf-8ad7-99471b558656" direction="Forward">
+              <layerMoniker Id="48d7d8be-1030-4582-be90-494a7d89f1d8" />
+            </dependencyFromLayerToLayer>
+          </dependencyToLayers>
+          <references>
+            <reference Id="8e169eab-431c-4953-b357-f37687e477c8" name="Services">
+              <ArtifactNode Label="Services" Category="CodeSchema_ProjectItem" Id="(Assembly=../Feedby.Infrastructure/Feedby.Infrastructure.csproj File=../Feedby.Infrastructure/Services/)">
+                <Category Ref="ProjectFolder" />
+              </ArtifactNode>
+              <ExpandedNode Id="(Assembly=Feedby.Infrastructure Namespace=Feedby.Infrastructure.Services Type=IProfileService)" Label="IProfileService" Category="CodeSchema_Interface">
+                <LinkCategory Ref="Represents" />
+              </ExpandedNode>
+              <ExpandedNode Id="(Assembly=Feedby.Infrastructure Namespace=Feedby.Infrastructure.Services Type=ProfileService)" Label="ProfileService" Category="CodeSchema_Class">
+                <LinkCategory Ref="Represents" />
+              </ExpandedNode>
+            </reference>
+          </references>
+        </layer>
+        <layer Id="48d7d8be-1030-4582-be90-494a7d89f1d8" name="Repositories">
+          <dependencyToLayers>
+            <dependencyFromLayerToLayer Id="515e218b-b48a-479c-a021-9b14f6cee202" direction="Forward">
+              <layerMoniker Id="d30852f7-b234-498b-9b75-3b8e08cfec15" />
+            </dependencyFromLayerToLayer>
+            <dependencyFromLayerToLayer Id="a544a119-94af-4ada-813b-c4bfeec8c653" direction="Forward">
+              <layerMoniker Id="ed082e99-a86a-4f22-9c3a-057c43fb69e2" />
+            </dependencyFromLayerToLayer>
+          </dependencyToLayers>
+          <references>
+            <reference Id="a6b46251-e5c4-4f09-9689-0410280c5f8b" name="Repositories">
+              <ArtifactNode Label="Repositories" Category="CodeSchema_ProjectItem" Id="(Assembly=../Feedby.Infrastructure/Feedby.Infrastructure.csproj File=../Feedby.Infrastructure/Repositories/)">
+                <Category Ref="ProjectFolder" />
+              </ArtifactNode>
+              <ExpandedNode Id="(Assembly=Feedby.Infrastructure Namespace=Feedby.Infrastructure.Repositories Type=IProfileDataSource)" Label="IProfileDataSource" Category="CodeSchema_Interface">
+                <LinkCategory Ref="Represents" />
+              </ExpandedNode>
+              <ExpandedNode Id="(Assembly=Feedby.Infrastructure Namespace=Feedby.Infrastructure.Repositories Type=ProfileDataSource)" Label="ProfileDataSource" Category="CodeSchema_Class">
+                <LinkCategory Ref="Represents" />
+              </ExpandedNode>
+            </reference>
+          </references>
+        </layer>
+        <layer Id="ed082e99-a86a-4f22-9c3a-057c43fb69e2" name="DataContext">
+          <dependencyToLayers>
+            <dependencyFromLayerToLayer Id="9b614b03-e9c4-43c2-8274-a6cbd17bf3fa" direction="Forward">
+              <layerMoniker Id="d30852f7-b234-498b-9b75-3b8e08cfec15" />
+            </dependencyFromLayerToLayer>
+          </dependencyToLayers>
+          <references>
+            <reference Id="cdf7edec-4bae-40a6-ba2e-cda3404a30d4" name="DataContext">
+              <ArtifactNode Label="DataContext" Category="CodeSchema_ProjectItem" Id="(Assembly=../Feedby.Infrastructure/Feedby.Infrastructure.csproj File=../Feedby.Infrastructure/DataContext/)">
+                <Category Ref="ProjectFolder" />
+              </ArtifactNode>
+              <ExpandedNode Id="(Assembly=Feedby.Infrastructure Namespace=Feedby.Infrastructure.DataContext Type=FeedbyDataContext)" Label="FeedbyDataContext" Category="CodeSchema_Class">
+                <LinkCategory Ref="Represents" />
+              </ExpandedNode>
+            </reference>
+          </references>
+        </layer>
+      </childLayers>
+    </layer>
+  </layers>
+</layerModel>

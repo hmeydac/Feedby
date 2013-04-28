@@ -1,4 +1,4 @@
-﻿@model List<Feedby.Profiles.Contracts.UserProfile>
+﻿@model List<Feedby.UI.Web.Models.UserProfileModel>
 
 @{
     if (this.Model == null || this.Model.Count == 0)
@@ -11,7 +11,7 @@
         <div class="subtitle underline">Filtered Results</div>
         <div class="sidebar-list">
             @{
-                foreach (Feedby.Profiles.Contracts.UserProfile profile in this.Model)
+                foreach (var profile in this.Model)
                 {
                     <div class="sidebar-profile profile">
                         <img src="~/Content/images/jarguello.jpg" />

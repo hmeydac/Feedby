@@ -7,7 +7,7 @@
 
     using Feedby.UI.Web.Models;
 
-    public class WebApiApplication : System.Web.HttpApplication
+    public class MvcApplication : System.Web.HttpApplication
     {
         protected void Application_Start()
         {
@@ -16,8 +16,7 @@
             WebApiConfig.Register(GlobalConfiguration.Configuration);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
-            BundleConfig.RegisterBundles(BundleTable.Bundles);
-            Bootstrapper.Initialise();
+            BundleConfig.RegisterBundles(BundleTable.Bundles);            
         }
 
         protected void Session_Start()

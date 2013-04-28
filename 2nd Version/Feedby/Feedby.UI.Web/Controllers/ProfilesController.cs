@@ -2,8 +2,12 @@
 {
     using System.Web.Mvc;
 
-    using Feedby.Profiles.Contracts;
+    using Feedby.Infrastructure.Domain;
+    using Feedby.Infrastructure.Services;
+
     using System.Collections.Generic;
+
+    using Feedby.UI.Web.Models;
 
     public class ProfilesController : Controller
     {
@@ -22,16 +26,16 @@
         [HttpPost]
         public ActionResult Search(string argument)
         {
-            var profiles = this.profileService.SearchProfiles(argument);
+            // var profiles = this.profileService.SearchProfiles(argument);
 
-            IList<UserProfile> profilesHC = new List<UserProfile>
+            var userProfiles = new List<UserProfileModel>
             {
-                new UserProfile { FirstName = "Marcos", LastName = "Castany" },
-                new UserProfile { FirstName = "Juan", LastName = "Arguello" },
-                new UserProfile { FirstName = "Jorge", LastName = "Rowies" },
-                new UserProfile { FirstName = "Hernan", LastName = "Meydac Jean"},
+                new UserProfileModel { FirstName = "Marcos", LastName = "Castany" },
+                new UserProfileModel { FirstName = "Juan", LastName = "Arguello" },
+                new UserProfileModel { FirstName = "Jorge", LastName = "Rowies" },
+                new UserProfileModel { FirstName = "Hernan", LastName = "Meydac Jean"},
             };
-            return this.PartialView("ProfileSearchResults", profilesHC);
+            return this.PartialView("ProfileSearchResults", userProfiles);
         }
     }
 }
