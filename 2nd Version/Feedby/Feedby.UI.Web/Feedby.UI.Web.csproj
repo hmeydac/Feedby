@@ -226,7 +226,6 @@
     <Content Include="Scripts\libs\knockout-2.1.0.debug.js" />
     <Content Include="Scripts\libs\knockout-2.1.0.js" />
     <Content Include="Scripts\libs\modernizr-2.5.3.js" />
-    <Content Include="Unity.Mvc4.README.txt" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
