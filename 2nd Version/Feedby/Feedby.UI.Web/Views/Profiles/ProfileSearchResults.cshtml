@@ -1,15 +1,25 @@
-﻿<div class="subtitle underline">Filtered Results</div>
-<div class="sidebar-list">
-    <div class="sidebar-profile profile">
-        <img src="~/Content/images/jarguello.jpg" />
-        <div class="sidebar-profile-name">Juan Arguello</div>
+﻿@model List<Feedby.UI.Web.Models.UserProfileModel>
+
+@{
+    if (this.Model == null || this.Model.Count == 0)
+    {
+    <div class="timeline-container">No records found.</div>
+    }
+    else
+    {
+    <div>
+        <div class="subtitle underline">Filtered Results</div>
+        <div class="sidebar-list">
+            @{
+                foreach (var profile in this.Model)
+                {
+                    <div class="sidebar-profile profile">
+                        <img src="~/Content/images/jarguello.jpg" />
+                        <div class="sidebar-profile-name">@profile.FirstName @profile.LastName</div>
+                    </div>
+                }   
+            }
+        </div>
     </div>
-    <div class="sidebar-profile profile">
-        <img src="~/Content/images/jarguello.jpg" />
-        <div class="sidebar-profile-name">Jorge Rowies</div>
-    </div>
-    <div class="sidebar-profile profile">
-        <img src="~/Content/images/jarguello.jpg" />
-        <div class="sidebar-profile-name">Hernán Meydac Jean</div>
-    </div>
-</div>
+    }
+}

@@ -87,20 +87,6 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Feedby.Profiles.Data\Feedby.Profiles.Data.csproj">
-      <Project>{f09bc100-5ee1-419b-a566-54fa19c4612e}</Project>
-      <Name>Feedby.Profiles.Data</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Feedby.Profiles\Feedby.Profiles.Contracts.csproj">
-      <Project>{3b93e21d-8eb0-4c73-8241-0418aa535c63}</Project>
-      <Name>Feedby.Profiles.Contracts</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Feedby.Services\Feedby.Services.csproj">
-      <Project>{3011c0d9-7af0-48d3-acaa-a9552f77c510}</Project>
-      <Name>Feedby.Services</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
