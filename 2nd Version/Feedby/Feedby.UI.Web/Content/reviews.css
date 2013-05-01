@@ -32,6 +32,10 @@
     color: rgb(75, 75, 75);
 }
 
+.review-text div .review-input-width{
+    width:90%;
+}
+
 .week
 {
     display: inline-block;

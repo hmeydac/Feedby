@@ -145,6 +145,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProfilesController.cs" />
+    <Compile Include="Controllers\ReviewsController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -155,6 +156,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\forms.css" />
+    <Content Include="Content\compose-review.css" />
     <Content Include="Content\images\jarguello.jpg" />
     <Content Include="Content\images\calendar.png" />
     <Content Include="Content\images\right.png" />
@@ -267,6 +269,8 @@
     <Content Include="Views\Shared\ApplicationHeader.cshtml" />
     <Content Include="Views\Profiles\ProfilesSideBar.cshtml" />
     <Content Include="Views\Profiles\ProfileSearchResults.cshtml" />
+    <Content Include="Views\Reviews\Details.cshtml" />
+    <Content Include="Views\Reviews\ReviewSidebar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
