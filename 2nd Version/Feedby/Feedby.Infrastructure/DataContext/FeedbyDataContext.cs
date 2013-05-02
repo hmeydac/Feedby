@@ -4,12 +4,16 @@
 
     using Feedby.Infrastructure.Domain;
 
-    public class FeedbyDataContext : DbContext
+    public class FeedbyDataContext : DbContext, IDbContext
     {
-        public FeedbyDataContext() : base("Feedby")
+        public FeedbyDataContext()
+            : base("Feedby")
         {
         }
 
-        public DbSet<UserProfile> UserProfiles { get; set; }
+        public new IDbSet<TEntity> Set<TEntity>() where TEntity : class
+        {
+            return base.Set<TEntity>();
+        }
     }
 }

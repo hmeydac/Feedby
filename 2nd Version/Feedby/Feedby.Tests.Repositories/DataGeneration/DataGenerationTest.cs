@@ -1,4 +1,4 @@
-﻿namespace Feedby.Tests.Repositories
+﻿namespace Feedby.Tests.Repositories.DataGeneration
 {
     using System;
 
@@ -17,35 +17,43 @@
         private readonly string[] lastNames = { "Rowies", "Castany", "Meydac", "Cabral", "Yenkel", "Arguello" };
 
         [TestMethod]
-        public void GenerateProfileData()
+        public void GenerateEmployeeData()
         {
             var context = new FeedbyDataContext();
 
             // Clear existing data
-            foreach (var existingProfile in context.UserProfiles)
-            {
-                context.UserProfiles.Remove(existingProfile);
-            }
-
-            // Create sample profiles & bio
+            this.ClearData(context);
             for (var i = 0; i < 5; i++)
             {
+                var rand = new Random((int)DateTime.Now.Ticks);
                 var bio = this.CreateUserBio(string.Format("Sample Bio {0}", i));
                 var profile = this.CreateProfile(bio);
-                context.UserProfiles.Add(profile);
+                var employee = new Employee
+                                   {
+                                       Id = Guid.NewGuid(),
+                                       FirstName = this.firstNames[rand.Next(0, this.firstNames.Length - 1)],
+                                       LastName = this.lastNames[rand.Next(0, this.lastNames.Length - 1)],
+                                       Profile = profile
+                                   };
+                context.Set<Employee>().Add(employee);
             }
 
-            // Persist changes
             context.SaveChanges();
+        }
+
+        private void ClearData(FeedbyDataContext context)
+        {
+            // Clear existing data
+            foreach (var employee in context.Set<Employee>())
+            {
+                context.Set<Employee>().Remove(employee);
+            }
         }
 
         private UserProfile CreateProfile(UserBio bio)
         {
-            var rand = new Random((int)DateTime.Now.Ticks);
             return new UserProfile
                        {
-                           FirstName = this.firstNames[rand.Next(0, this.firstNames.Length - 1)],
-                           LastName = this.lastNames[rand.Next(0, this.lastNames.Length - 1)],
                            Id = Guid.NewGuid(),
                            PictureUrl = PictureUrl,
                            Bio = bio
