@@ -28,7 +28,8 @@ namespace Feedby.UI.Web
                 "~/Content/top_header.css",
                 "~/Content/reviews.css",
                 "~/Content/forms.css",
-                "~/Content/sidebar.css"));
+                "~/Content/sidebar.css",
+                "~/Content/compose-review.css"));
 
             bundles.Add(new StyleBundle("~/Content/themes/base/css").Include(
                         "~/Content/themes/base/jquery.ui.core.css",
