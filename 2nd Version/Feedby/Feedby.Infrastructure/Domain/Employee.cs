@@ -3,11 +3,8 @@
     using System;
     using System.ComponentModel.DataAnnotations;
 
-    public class Employee
+    public class Employee : BaseEntity<Guid>
     {
-        [Key]
-        public Guid Id { get; set; }
-
         [MaxLength(50), Required]
         public string FirstName { get; set; }
 

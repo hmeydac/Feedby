@@ -2,72 +2,55 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Data;
     using System.Data.Entity;
     using System.Linq;
 
-    using Feedby.Infrastructure.DataContext;
+    using Feedby.Infrastructure.Domain;
 
-    public class EntityRepository<TEntity> : IEntityRepository<TEntity> where TEntity : class
+    public class EntityRepository<TEntity> : IEntityRepository<TEntity> where TEntity : BaseEntity<Guid>
     {
-        private IDbContext context;
+        private readonly DbContext context;
 
-        public EntityRepository(IDbContext context)
-        {
-            this.context = context;
-        }
+        private readonly DbSet<TEntity> entitySet;
 
-        private IDbSet<TEntity> Entities
+        public EntityRepository(IUnitOfWork unitOfWork)
         {
-            get { return this.context.Set<TEntity>(); }
+            this.context = unitOfWork.Context;
+            this.entitySet = this.context.Set<TEntity>();
         }
 
         public IEnumerable<TEntity> GetAll()
         {
-            return this.Entities.AsEnumerable();
+            return this.entitySet.AsEnumerable();
         }
 
-        public TEntity GetById(object id)
+        public TEntity FindById(Guid id)
         {
-            return this.Entities.Find(id);
+            return this.entitySet.FirstOrDefault(e => e.Id.Equals(id));
         }
 
         public TEntity Insert(TEntity entity)
         {
-            this.Entities.Add(entity);
+            entity.Id = Guid.NewGuid();
+            this.entitySet.Add(entity);
             return entity;
         }
 
         public TEntity Update(TEntity entity)
         {
-            if (entity == null)
-            {
-                throw new ArgumentNullException("entity");
-            }
-
-            this.context.SaveChanges();
+            this.context.Entry(entity).State = EntityState.Modified;
             return entity;
         }
 
         public void Delete(TEntity entity)
         {
-            this.Entities.Remove(entity);
+            this.entitySet.Remove(entity);
         }
 
-        public void Dispose()
+        public void SaveChanges()
         {
-            this.Dispose(true);
-            GC.SuppressFinalize(this);
-        }
-
-        protected virtual void Dispose(bool disposing)
-        {
-            if (!disposing || this.context == null)
-            {
-                return;
-            }
-
-            this.context.Dispose();
-            this.context = null;
+            this.context.SaveChanges();
         }
     }
 }

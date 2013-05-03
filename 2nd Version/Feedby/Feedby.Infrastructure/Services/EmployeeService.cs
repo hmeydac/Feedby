@@ -17,7 +17,7 @@
 
         public void Delete(Employee entity)
         {
-            var entityToDelete = this.employeeRepository.GetById(entity.Id);
+            var entityToDelete = this.employeeRepository.FindById(entity.Id);
             this.employeeRepository.Delete(entityToDelete);
         }
 
@@ -26,9 +26,9 @@
             return this.employeeRepository.Insert(entity);
         }
 
-        public Employee GetById(Guid id)
+        public Employee FindById(Guid id)
         {
-            return this.employeeRepository.GetById(id);
+            return this.employeeRepository.FindById(id);
         }
 
         public IEnumerable<Employee> FilterByName(string name)

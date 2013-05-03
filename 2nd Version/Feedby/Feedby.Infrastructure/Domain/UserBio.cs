@@ -4,10 +4,10 @@
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
 
-    public class UserBio
+    public class UserBio : BaseEntity<Guid>
     {
         [Key, ForeignKey("UserProfile")]
-        public Guid Id { get; set; }
+        public new Guid Id { get; set; }
 
         [ForeignKey("Id")]
         public virtual UserProfile UserProfile { get; set; }

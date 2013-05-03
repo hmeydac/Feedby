@@ -8,6 +8,6 @@
 
         TEntity Save(TEntity entity);
 
-        TEntity GetById(Guid id);
+        TEntity FindById(Guid id);
     }
 }
