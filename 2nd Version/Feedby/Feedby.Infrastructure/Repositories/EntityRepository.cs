@@ -1,22 +1,21 @@
 ﻿namespace Feedby.Infrastructure.Repositories
 {
-    using System;
     using System.Collections.Generic;
     using System.Data;
     using System.Data.Entity;
     using System.Linq;
 
-    using Feedby.Infrastructure.Domain;
+    using Feedby.Infrastructure.QueryObjects;
 
-    public class EntityRepository<TEntity> : IEntityRepository<TEntity> where TEntity : BaseEntity<Guid>
+    public class EntityRepository<TEntity> : IEntityRepository<TEntity> where TEntity : class
     {
         private readonly DbContext context;
 
         private readonly DbSet<TEntity> entitySet;
 
-        public EntityRepository(IUnitOfWork unitOfWork)
+        public EntityRepository(DbContext context)
         {
-            this.context = unitOfWork.Context;
+            this.context = context;
             this.entitySet = this.context.Set<TEntity>();
         }
 
@@ -25,14 +24,18 @@
             return this.entitySet.AsEnumerable();
         }
 
-        public TEntity FindById(Guid id)
+        public TEntity Single(IQueryObject<TEntity> query)
         {
-            return this.entitySet.FirstOrDefault(e => e.Id.Equals(id));
+            return this.entitySet.SingleOrDefault(query.GetQuery());
+        }
+
+        public IEnumerable<TEntity> FindBy(IQueryObject<TEntity> query)
+        {
+            return this.entitySet.Where(query.GetQuery()).AsEnumerable();
         }
 
         public TEntity Insert(TEntity entity)
         {
-            entity.Id = Guid.NewGuid();
             this.entitySet.Add(entity);
             return entity;
         }
@@ -46,11 +49,6 @@
         public void Delete(TEntity entity)
         {
             this.entitySet.Remove(entity);
-        }
-
-        public void SaveChanges()
-        {
-            this.context.SaveChanges();
         }
     }
 }

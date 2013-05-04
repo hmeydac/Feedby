@@ -3,8 +3,11 @@
     using System;
     using System.ComponentModel.DataAnnotations;
 
-    public class UserProfile : BaseEntity<Guid>
+    public class UserProfile
     {
+        [Key]
+        public Guid Id { get; set; }
+
         public string PictureUrl { get; set; }
 
         [Required]

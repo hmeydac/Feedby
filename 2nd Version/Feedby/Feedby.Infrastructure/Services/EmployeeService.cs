@@ -4,6 +4,7 @@
     using System.Collections.Generic;
 
     using Feedby.Infrastructure.Domain;
+    using Feedby.Infrastructure.QueryObjects;
     using Feedby.Infrastructure.Repositories;
 
     public class EmployeeService : IEmployeeService
@@ -17,7 +18,8 @@
 
         public void Delete(Employee entity)
         {
-            var entityToDelete = this.employeeRepository.FindById(entity.Id);
+            var query = new EmployeeIdQuery(entity.Id);
+            var entityToDelete = this.employeeRepository.Single(query);
             this.employeeRepository.Delete(entityToDelete);
         }
 
@@ -26,14 +28,16 @@
             return this.employeeRepository.Insert(entity);
         }
 
-        public Employee FindById(Guid id)
+        public Employee SingleById(Guid id)
         {
-            return this.employeeRepository.FindById(id);
+            var query = new EmployeeIdQuery(id);
+            return this.employeeRepository.Single(query);
         }
 
         public IEnumerable<Employee> FilterByName(string name)
         {
-            throw new NotImplementedException();
+            var query = new PartialNameQuery(name);
+            return this.employeeRepository.FindBy(query);
         }
     }
 }

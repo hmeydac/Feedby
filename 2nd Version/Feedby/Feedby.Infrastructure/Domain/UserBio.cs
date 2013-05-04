@@ -4,7 +4,7 @@
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
 
-    public class UserBio : BaseEntity<Guid>
+    public class UserBio
     {
         [Key, ForeignKey("UserProfile")]
         public new Guid Id { get; set; }

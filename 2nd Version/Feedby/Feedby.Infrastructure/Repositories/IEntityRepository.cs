@@ -1,22 +1,21 @@
 ﻿namespace Feedby.Infrastructure.Repositories
 {
-    using System;
     using System.Collections.Generic;
 
-    using Feedby.Infrastructure.Domain;
+    using Feedby.Infrastructure.QueryObjects;
 
-    public interface IEntityRepository<TEntity> where TEntity : BaseEntity<Guid>
+    public interface IEntityRepository<TEntity> where TEntity : class
     {
         IEnumerable<TEntity> GetAll();
 
-        TEntity FindById(Guid id);
+        TEntity Single(IQueryObject<TEntity> query);
+
+        IEnumerable<TEntity> FindBy(IQueryObject<TEntity> query);
 
         TEntity Insert(TEntity entity);
 
         TEntity Update(TEntity entity);
 
         void Delete(TEntity entity);
-
-        void SaveChanges();
     }
 }
