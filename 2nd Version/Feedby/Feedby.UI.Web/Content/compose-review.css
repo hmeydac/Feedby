@@ -41,13 +41,38 @@
 }
 
     .sidebar .pannel-reviews .review:first-child {
-        margin-top:2px;
+        margin-top: 2px;
     }
 
     .sidebar .pannel-reviews .review {
         margin-left: 1px;
-        border: 1px solid black
+        border: 1px solid black;
     }
+
+        .sidebar .pannel-reviews .review span.pill {
+            -webkit-border-radius: 3px;
+            -moz-border-radius: 3px;
+            border-radius: 3px;
+            display: inline-block;
+            padding: 2px 4px;
+            font-size: 11.844px;
+            font-weight: bold;
+            line-height: 14px;
+            color: #ffffff;
+            -webkit-text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+            text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+            white-space: nowrap;
+            vertical-align: baseline;
+        }
+
+        .sidebar .pannel-reviews .review span.reviewer {
+            font-style: italic;
+            font-weight: bolder;
+            font-size: 0.8em;
+            color: gray;
+            padding-left: 5px;
+        }
+
         .sidebar .pannel-reviews .review .title {
         }
 
@@ -65,34 +90,34 @@
     width: 100%;
 }
 
-.row{
-    display:block;
-}
-
-.row .column:first-child{
-    float:left;
-    width:50%;
-}
-
-.row .column:last-child{
-    float:right;
-}
-
-.row:after{
-    content: ".";
+.row {
     display: block;
-    height: 0;
-    clear: both;
-    visibility: hidden;
 }
 
-.row a.button{
-    background-color: rgb(0, 180, 0);
-    border: 1px solid rgb(0, 180,0);
-    color: white;
-    font-weight: bold;
-    padding: 5px;
-    min-width: 75px;
-    text-decoration:none;
-    vertical-align:middle;
-}
+    .row .column:first-child {
+        float: left;
+        width: 50%;
+    }
+
+    .row .column:last-child {
+        float: right;
+    }
+
+    .row:after {
+        content: ".";
+        display: block;
+        height: 0;
+        clear: both;
+        visibility: hidden;
+    }
+
+    .row a.button {
+        background-color: rgb(0, 180, 0);
+        border: 1px solid rgb(0, 180,0);
+        color: white;
+        font-weight: bold;
+        padding: 5px;
+        min-width: 75px;
+        text-decoration: none;
+        vertical-align: middle;
+    }

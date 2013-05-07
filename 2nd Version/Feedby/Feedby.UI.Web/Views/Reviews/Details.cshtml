@@ -20,7 +20,7 @@
     </div>
     <hr />
     <form>
-        <div id="reviews" class="review">
+        <div id="review-container" class="review">
             <div data-id="bad" class="review-container">
                 <div class="review-header lightred">
                     <div class="review-title red">the bad</div>
@@ -60,7 +60,7 @@
     <script src="~/Scripts/app.js"></script>
     <script src="~/Scripts/controllers/review.controller.js"></script>
     <script type="text/javascript">
-        var controller = new Feedby.ReviewController($("#reviews"));
+        var controller = new Feedby.ReviewController($("#review-container"));
         controller.init();
     </script>
 }
