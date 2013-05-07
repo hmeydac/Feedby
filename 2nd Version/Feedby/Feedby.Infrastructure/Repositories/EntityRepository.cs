@@ -37,6 +37,7 @@
         public TEntity Insert(TEntity entity)
         {
             this.entitySet.Add(entity);
+            this.context.SaveChanges();
             return entity;
         }
 

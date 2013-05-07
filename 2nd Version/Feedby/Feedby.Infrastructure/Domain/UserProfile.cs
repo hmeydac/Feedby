@@ -8,8 +8,11 @@
         [Key]
         public Guid Id { get; set; }
 
-        public string PictureUrl { get; set; }
+        [Required]
+        public Employee Employee { get; set; }
 
+        public string PictureUrl { get; set; }
+        
         [Required]
         public virtual UserBio Bio { get; set; }
     }

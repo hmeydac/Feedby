@@ -1,6 +1,7 @@
 ﻿namespace Feedby.Infrastructure.Domain
 {
     using System;
+    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 
     public class Employee
@@ -16,5 +17,13 @@
 
         [Required]
         public UserProfile Profile { get; set; }
+
+        public IList<Review> ReviewsReceived { get; set; }
+
+        public IList<Review> ReviewsProvided { get; set; }
+
+        public IList<Feedback> FeedbacksReceived { get; set; }
+
+        public IList<Feedback> FeedbacksProvided { get; set; }
     }
 }
