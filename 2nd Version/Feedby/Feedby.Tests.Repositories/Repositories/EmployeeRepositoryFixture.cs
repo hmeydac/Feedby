@@ -1,10 +1,7 @@
 ﻿namespace Feedby.Tests.Repositories.Repositories
 {
     using System;
-    using System.Linq;
-    using System.Transactions;
 
-    using Feedby.Infrastructure.DataContext;
     using Feedby.Infrastructure.Domain;
     using Feedby.Infrastructure.QueryObjects;
     using Feedby.Infrastructure.Repositories;
@@ -12,19 +9,8 @@
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     [TestClass]
-    public class EmployeeRepositoryFixture
+    public class EmployeeRepositoryFixture : TransactionalTest
     {
-        private TransactionScope transaction;
-
-        private FeedbyDataContext context;
-
-        [TestInitialize]
-        public void Startup()
-        {
-            this.transaction = new TransactionScope();
-            this.context = new FeedbyDataContext();
-        }
-
         [TestMethod]
         public void WhenInsertingEmployeeShouldSaveIt()
         {
@@ -32,12 +18,12 @@
             const string ExpectedFirstName = "FirstName";
             const string ExpectedLastName = "LastName";
 
-            var employeeRepository = new EntityRepository<Employee>(this.context);
+            var employeeRepository = new EntityRepository<Employee>(this.Context);
             var employee = CreateEmployee(ExpectedFirstName, ExpectedLastName);
 
             // Act
             var insertedEmployee = employeeRepository.Insert(employee);
-            this.context.SaveChanges();
+            this.Context.SaveChanges();
             var query = new EmployeeIdQuery(insertedEmployee.Id);
             var actual = employeeRepository.Single(query);
 
@@ -59,15 +45,6 @@
                                    Profile = profile
                                };
             return employee;
-        }
-
-        [TestCleanup]
-        public void Cleanup()
-        {
-            if (this.transaction != null)
-            {
-                this.transaction.Dispose();
-            }
         }
     }
 }

@@ -31,7 +31,7 @@
         public Employee SingleById(Guid id)
         {
             var query = new EmployeeIdQuery(id);
-            return this.employeeRepository.Single(query);
+            return this.employeeRepository.Single(query, new[] { "Profile", "Profile.Bio" });
         }
 
         public IEnumerable<Employee> FilterByName(string name)

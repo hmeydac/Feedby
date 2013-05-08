@@ -22,7 +22,7 @@
             // Arrange
             var expectedId = Guid.NewGuid();
             var employeeRepositoryMock = new Mock<IEntityRepository<Employee>>(MockBehavior.Strict);
-            employeeRepositoryMock.Setup(r => r.Single(It.IsAny<IQueryObject<Employee>>()))
+            employeeRepositoryMock.Setup(r => r.Single(It.IsAny<IQueryObject<Employee>>(), It.IsAny<string[]>()))
                                   .Returns(new Employee { Id = expectedId });
             var employeeService = new EmployeeService(employeeRepositoryMock.Object);
 
@@ -32,7 +32,7 @@
             // Assert
             Assert.IsNotNull(actual);
             Assert.AreEqual(expectedId, actual.Id);
-            employeeRepositoryMock.Verify(r => r.Single(It.IsAny<IQueryObject<Employee>>()), Times.Once());
+            employeeRepositoryMock.Verify(r => r.Single(It.IsAny<IQueryObject<Employee>>(), It.IsAny<string[]>()), Times.Once());
         }
 
         [TestMethod]

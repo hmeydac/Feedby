@@ -59,6 +59,8 @@
     <Compile Include="DataGeneration\DataGenerationTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\EmployeeRepositoryFixture.cs" />
+    <Compile Include="Services\EmployeeServiceFixture.cs" />
+    <Compile Include="TransactionalTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Feedby.Infrastructure\Feedby.Infrastructure.csproj">

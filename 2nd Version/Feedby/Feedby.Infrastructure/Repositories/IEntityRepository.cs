@@ -10,6 +10,8 @@
 
         TEntity Single(IQueryObject<TEntity> query);
 
+        TEntity Single(IQueryObject<TEntity> query, string[] includes);
+
         IEnumerable<TEntity> FindBy(IQueryObject<TEntity> query);
 
         TEntity Insert(TEntity entity);

@@ -50,6 +50,7 @@
     <Compile Include="Domain\Employee.cs" />
     <Compile Include="Domain\Feedback.cs" />
     <Compile Include="Domain\FeedbackType.cs" />
+    <Compile Include="Domain\Project.cs" />
     <Compile Include="Domain\UserBio.cs" />
     <Compile Include="Domain\UserProfile.cs" />
     <Compile Include="Domain\Review.cs" />

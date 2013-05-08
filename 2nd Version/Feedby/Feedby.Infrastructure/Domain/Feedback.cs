@@ -26,5 +26,9 @@
         
         [Required]
         public Employee To { get; set; }
+
+        public Project Project { get; set; }
+
+        public Guid? ProjectId { get; set; }
     }
 }

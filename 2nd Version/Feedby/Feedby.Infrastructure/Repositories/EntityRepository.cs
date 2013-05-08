@@ -1,8 +1,10 @@
 ﻿namespace Feedby.Infrastructure.Repositories
 {
+    using System;
     using System.Collections.Generic;
     using System.Data;
     using System.Data.Entity;
+    using System.Data.Entity.Infrastructure;
     using System.Linq;
 
     using Feedby.Infrastructure.QueryObjects;
@@ -27,6 +29,22 @@
         public TEntity Single(IQueryObject<TEntity> query)
         {
             return this.entitySet.SingleOrDefault(query.GetQuery());
+        }
+
+        public TEntity Single(IQueryObject<TEntity> query, string[] includes)
+        {
+            if (includes == null)
+            {
+                throw new ArgumentNullException("includes");
+            }
+
+            DbQuery<TEntity> queryPath = null;
+            foreach (var include in includes)
+            {
+                queryPath = this.entitySet.Include(include);
+            }
+
+            return queryPath.SingleOrDefault(query.GetQuery());
         }
 
         public IEnumerable<TEntity> FindBy(IQueryObject<TEntity> query)

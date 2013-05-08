@@ -1,6 +1,5 @@
 ﻿namespace Feedby.Infrastructure.DataContext
 {
-    using System.Collections.Generic;
     using System.Data.Entity;
 
     using Feedby.Infrastructure.Domain;
@@ -21,6 +20,8 @@
         public DbSet<Review> Reviews { get; set; }
 
         public DbSet<Feedback> Feedbacks { get; set; }
+
+        public DbSet<Project> Projects { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -53,6 +54,7 @@
             modelBuilder.Entity<Feedback>().HasRequired(f => f.From).WithMany(e => e.FeedbacksProvided).WillCascadeOnDelete(false);
             modelBuilder.Entity<Feedback>().HasRequired(f => f.To).WithMany(e => e.FeedbacksReceived).WillCascadeOnDelete(false);
             modelBuilder.Entity<Feedback>().HasOptional(f => f.Review).WithMany(r => r.Feedbacks).HasForeignKey(f => f.ReviewId);
+            modelBuilder.Entity<Feedback>().HasOptional(f => f.Project).WithMany(p=> p.Feedbacks).HasForeignKey(f => f.ProjectId);
         }
     }
 }
