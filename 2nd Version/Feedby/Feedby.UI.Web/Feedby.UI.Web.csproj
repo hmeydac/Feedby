@@ -41,6 +41,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper">
+      <HintPath>..\packages\AutoMapper.2.2.1\lib\net40\AutoMapper.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Ninject">
       <HintPath>..\packages\Ninject.3.0.1.10\lib\net45-full\Ninject.dll</HintPath>
@@ -145,6 +148,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProfilesController.cs" />
+    <Compile Include="Controllers\ReviewsController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -155,6 +159,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\forms.css" />
+    <Content Include="Content\compose-review.css" />
     <Content Include="Content\images\jarguello.jpg" />
     <Content Include="Content\images\calendar.png" />
     <Content Include="Content\images\right.png" />
@@ -220,7 +225,7 @@
     <None Include="Scripts\libs\jquery-1.7.1.intellisense.js" />
     <Content Include="Scripts\app.js" />
     <Content Include="Scripts\controllers\search.controller.js" />
-    <Content Include="Scripts\controllers\profile.controller.js" />
+    <Content Include="Scripts\controllers\review.controller.js" />
     <Content Include="Scripts\libs\jquery-1.7.1.js" />
     <Content Include="Scripts\libs\jquery-1.7.1.min.js" />
     <None Include="Scripts\libs\jquery.validate-vsdoc.js" />
@@ -267,6 +272,8 @@
     <Content Include="Views\Shared\ApplicationHeader.cshtml" />
     <Content Include="Views\Profiles\ProfilesSideBar.cshtml" />
     <Content Include="Views\Profiles\ProfileSearchResults.cshtml" />
+    <Content Include="Views\Reviews\Details.cshtml" />
+    <Content Include="Views\Reviews\ReviewSidebar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

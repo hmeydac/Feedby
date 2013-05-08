@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Feedby.Infrastructure.Domain.Employee">
+    <Position X="5" Y="8.25" Width="1.5" />
+    <AssociationLine Name="FeedbacksReceived" Type="Feedby.Infrastructure.Domain.Feedback">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.102" Y="0.11" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="FeedbacksProvided" Type="Feedby.Infrastructure.Domain.Feedback">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-1.503" Y="0.162" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAACAEAIAAAAAAAAAAAAAAAAAAgAAAAAABAAAAAAIBg=</HashCode>
+      <FileName>Domain\Employee.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Profile" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="ReviewsReceived" />
+      <Property Name="ReviewsProvided" />
+      <Property Name="FeedbacksReceived" />
+      <Property Name="FeedbacksProvided" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Feedby.Infrastructure.Domain.Feedback">
+    <Position X="5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgACAAAAAAQAAAAAAAAACAAABAAIAAAAEACACIAAAAA=</HashCode>
+      <FileName>Domain\Feedback.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="FeedbackType" />
+      <Property Name="Project" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Feedby.Infrastructure.Domain.Review">
+    <Position X="2" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAABAAAAAAAAAACAAAAAAAIAAAAAAAAAIAAAAA=</HashCode>
+      <FileName>Domain\Review.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Feedbacks" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Feedby.Infrastructure.Domain.UserBio">
+    <Position X="7.5" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAEAAAAAA=</HashCode>
+      <FileName>Domain\UserBio.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Feedby.Infrastructure.Domain.UserProfile">
+    <Position X="7.5" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAQAAAACAAAAAAACAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Domain\UserProfile.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Bio" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Feedby.Infrastructure.Domain.Project">
+    <Position X="8.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAACAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Domain\Project.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="Feedby.Infrastructure.Domain.FeedbackType" Collapsed="true">
+    <Position X="5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAACAAAA=</HashCode>
+      <FileName>Domain\FeedbackType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

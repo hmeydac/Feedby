@@ -1,0 +1,66 @@
+﻿@{
+    ViewBag.Title = "Review";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    this.Html.RenderPartial("ReviewSidebar");
+}
+
+
+<section class="main-section">
+    <div class="row">
+        <div class="column">
+            <div class="title">Marcos Review</div>
+            <div class="title-comment">This review is for ISO Week Number 29</div>
+        </div>
+        <div class="column">
+            <a href="#" class="button" >Close Review</a>
+        </div>
+    </div>
+    <hr />
+    <form>
+        <div id="review-container" class="review">
+            <div data-id="bad" class="review-container">
+                <div class="review-header lightred">
+                    <div class="review-title red">the bad</div>
+                </div>
+                <div class="review-text border-red">
+                    <div>
+                        <input type="text" placeholder="Feedback" style="width: 90%;" />
+                    </div>
+                    @*<div><input type="text" placeholder="Action Item" style="width:90%"/></div>*@
+                </div>
+            </div>
+            <div data-id="good" class="review-container">
+                <div class="review-header lightgreen">
+                    <div class="review-title green">the good</div>
+                </div>
+                <div class="review-text border-green">
+                    <div>
+                        <input type="text" placeholder="Feedback" class="review-input-width" />
+                    </div>
+                </div>
+            </div>
+            <div data-id="improve" class="review-container">
+                <div class="review-header lightorange">
+                    <div class="review-title orange">to improve</div>
+                </div>
+                <div class="review-text border-orange">
+                    <div>
+                        <input type="text" placeholder="Feedback" class="review-input-width" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</section>
+
+@section scripts{
+    <script src="~/Scripts/app.js"></script>
+    <script src="~/Scripts/controllers/review.controller.js"></script>
+    <script type="text/javascript">
+        var controller = new Feedby.ReviewController($("#review-container"));
+        controller.init();
+    </script>
+}

@@ -1,41 +1,38 @@
 ﻿namespace Feedby.UI.Web.Controllers
 {
+    using System.Collections.Generic;
     using System.Web.Mvc;
 
-    using Feedby.Infrastructure.Domain;
+    using AutoMapper;
+
     using Feedby.Infrastructure.Services;
-
-    using System.Collections.Generic;
-
     using Feedby.UI.Web.Models;
+
+    using WebGrease.Css.Extensions;
 
     public class ProfilesController : Controller
     {
-        private IProfileService profileService;
+        private readonly IEmployeeService employeeService;
 
-        public ProfilesController(IProfileService service)
+        public ProfilesController(IEmployeeService employeeService)
         {
-            this.profileService = service;
+            this.employeeService = employeeService;
         }
 
         public ActionResult Index()
         {
-            return View();
+            return this.View();
         }
 
         [HttpPost]
         public ActionResult Search(string argument)
         {
-            // var profiles = this.profileService.SearchProfiles(argument);
+            var employees = this.employeeService.FilterByName(argument);
+            var viewModel = new List<UserProfileModel>();
 
-            var userProfiles = new List<UserProfileModel>
-            {
-                new UserProfileModel { FirstName = "Marcos", LastName = "Castany" },
-                new UserProfileModel { FirstName = "Juan", LastName = "Arguello" },
-                new UserProfileModel { FirstName = "Jorge", LastName = "Rowies" },
-                new UserProfileModel { FirstName = "Hernan", LastName = "Meydac Jean"},
-            };
-            return this.PartialView("ProfileSearchResults", userProfiles);
+            employees.ForEach(e => viewModel.Add(Mapper.Map<UserProfileModel>(e)));
+
+            return this.PartialView("ProfileSearchResults", viewModel);
         }
     }
 }

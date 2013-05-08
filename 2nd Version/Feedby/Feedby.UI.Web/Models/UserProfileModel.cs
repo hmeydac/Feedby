@@ -1,8 +1,10 @@
 ﻿namespace Feedby.UI.Web.Models
 {
+    using System;
+
     public class UserProfileModel
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
 
         public string FirstName { get; set; }
 

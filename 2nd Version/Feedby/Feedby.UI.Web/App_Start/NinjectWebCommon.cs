@@ -4,7 +4,10 @@
 namespace Feedby.UI.Web.App_Start
 {
     using System;
+    using System.Data.Entity;
     using System.Web;
+
+    using Feedby.Infrastructure.DataContext;
 
     using Microsoft.Web.Infrastructure.DynamicModuleHelper;
 
@@ -55,6 +58,7 @@ namespace Feedby.UI.Web.App_Start
         private static void RegisterServices(IKernel kernel)
         {
             kernel.Bind(x => x.FromAssembliesMatching("*").SelectAllClasses().BindDefaultInterface());
+            kernel.Bind<DbContext>().To<FeedbyDataContext>().InRequestScope();
         }
     }
 }

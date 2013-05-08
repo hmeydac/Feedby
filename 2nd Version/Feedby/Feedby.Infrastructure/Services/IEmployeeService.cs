@@ -4,8 +4,8 @@
 
     using Feedby.Infrastructure.Domain;
 
-    public interface IProfileService
+    public interface IEmployeeService : IEntityService<Employee>
     {
-        IEnumerable<UserProfile> SearchProfiles(string argument);
+        IEnumerable<Employee> FilterByName(string name);
     }
 }
