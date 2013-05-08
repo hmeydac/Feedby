@@ -3,10 +3,21 @@
     using System.Collections.Generic;
     using System.Web.Mvc;
 
+    using AutoMapper;
+
+    using Feedby.Infrastructure.Services;
     using Feedby.UI.Web.Models;
+
+    using WebGrease.Css.Extensions;
 
     public class ProfilesController : Controller
     {
+        private readonly IEmployeeService employeeService;
+
+        public ProfilesController(IEmployeeService employeeService)
+        {
+            this.employeeService = employeeService;
+        }
 
         public ActionResult Index()
         {
@@ -16,15 +27,12 @@
         [HttpPost]
         public ActionResult Search(string argument)
         {
-            var userProfiles = new List<UserProfileModel>
-            {
-                new UserProfileModel { FirstName = "Marcos", LastName = "Castany" },
-                new UserProfileModel { FirstName = "Juan", LastName = "Arguello" },
-                new UserProfileModel { FirstName = "Jorge", LastName = "Rowies" },
-                new UserProfileModel { FirstName = "Hernan", LastName = "Meydac Jean"}
-            };
+            var employees = this.employeeService.FilterByName(argument);
+            var viewModel = new List<UserProfileModel>();
 
-            return this.PartialView("ProfileSearchResults", userProfiles);
+            employees.ForEach(e => viewModel.Add(Mapper.Map<UserProfileModel>(e)));
+
+            return this.PartialView("ProfileSearchResults", viewModel);
         }
     }
 }
