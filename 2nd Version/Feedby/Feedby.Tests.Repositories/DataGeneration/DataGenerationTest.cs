@@ -33,6 +33,7 @@
                                        Id = Guid.NewGuid(),
                                        FirstName = this.firstNames[rand.Next(0, this.firstNames.Length - 1)],
                                        LastName = this.lastNames[rand.Next(0, this.lastNames.Length - 1)],
+                                       Email = "testing@something.net",
                                        Profile = profile
                                    };
                 context.Set<Employee>().Add(employee);

@@ -54,7 +54,7 @@
             modelBuilder.Entity<Feedback>().HasRequired(f => f.From).WithMany(e => e.FeedbacksProvided).WillCascadeOnDelete(false);
             modelBuilder.Entity<Feedback>().HasRequired(f => f.To).WithMany(e => e.FeedbacksReceived).WillCascadeOnDelete(false);
             modelBuilder.Entity<Feedback>().HasOptional(f => f.Review).WithMany(r => r.Feedbacks).HasForeignKey(f => f.ReviewId);
-            modelBuilder.Entity<Feedback>().HasOptional(f => f.Project).WithMany(p=> p.Feedbacks).HasForeignKey(f => f.ProjectId);
+            modelBuilder.Entity<Feedback>().HasMany(f => f.Projects).WithMany(p => p.Feedbacks);
         }
     }
 }

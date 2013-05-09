@@ -15,7 +15,7 @@
         
         public override Func<Employee, bool> GetQuery()
         {
-            return (e) => QueryExpressions.EmployeePartialName(e, this.PartialName);
+            return (e) => QueryExpressions.EmployeePartialName(e, this.PartialName.ToLowerInvariant());
         }
     }
 }
