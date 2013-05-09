@@ -8,7 +8,7 @@
     public static class QueryExpressions
     {
         #region Expressions
-        private static readonly Expression<Func<Employee, string, bool>> EmployeePartialNameExpression = (employee, partialName) => employee.FirstName.Contains(partialName) || employee.LastName.Contains(partialName);
+        private static readonly Expression<Func<Employee, string, bool>> EmployeePartialNameExpression = (employee, partialName) => employee.FirstName.ToLowerInvariant().Contains(partialName) || employee.LastName.ToLowerInvariant().Contains(partialName);
 
         private static readonly Expression<Func<Employee, Guid, bool>> EmployeeIdExpression = (employee, id) => employee.Id.Equals(id);
         #endregion

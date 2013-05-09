@@ -19,7 +19,8 @@
             var employeeService = new EmployeeService(repository);
             var expectedFirstName = "TestName";
             var expectedLastName = "TestLastName";
-            var employee = this.CreateEmployee(expectedFirstName, expectedLastName);
+            var expectedEmail = "test@test.com";
+            var employee = this.CreateEmployee(expectedFirstName, expectedLastName, expectedEmail);
             var savedEmployee = employeeService.Save(employee);
 
             // Act
@@ -33,7 +34,7 @@
             Assert.IsNotNull(actual.Profile.Bio);
         }
 
-        private Employee CreateEmployee(string firstName, string lastName)
+        private Employee CreateEmployee(string firstName, string lastName, string email)
         {
             var bio = new UserBio { Id = Guid.NewGuid(), BioDescription = "Test" };
             var profile = new UserProfile { Id = Guid.NewGuid(), Bio = bio };
@@ -42,6 +43,7 @@
                 Id = Guid.NewGuid(),
                 FirstName = firstName,
                 LastName = lastName,
+                Email = email,
                 Profile = profile
             };
             return employee;

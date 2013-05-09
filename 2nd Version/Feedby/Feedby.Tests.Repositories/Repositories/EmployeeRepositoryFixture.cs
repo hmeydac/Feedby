@@ -42,6 +42,7 @@
                                    Id = Guid.NewGuid(),
                                    FirstName = firstName,
                                    LastName = lastName,
+                                   Email = "test@test.com",
                                    Profile = profile
                                };
             return employee;

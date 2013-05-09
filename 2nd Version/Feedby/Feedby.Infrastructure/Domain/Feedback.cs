@@ -1,6 +1,7 @@
 ﻿namespace Feedby.Infrastructure.Domain
 {
     using System;
+    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 
     public class Feedback
@@ -27,7 +28,7 @@
         [Required]
         public Employee To { get; set; }
 
-        public Project Project { get; set; }
+        public IList<Project> Projects { get; set; }
 
         public Guid? ProjectId { get; set; }
     }
