@@ -6,6 +6,7 @@
     using AutoMapper;
 
     using Feedby.Infrastructure.Services;
+    using Feedby.UI.Web.ActionFilters;
     using Feedby.UI.Web.Models;
 
     using WebGrease.Css.Extensions;

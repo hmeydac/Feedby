@@ -6,8 +6,10 @@ namespace Feedby.UI.Web.App_Start
     using System;
     using System.Data.Entity;
     using System.Web;
+    using System.Web.Mvc;
 
     using Feedby.Infrastructure.DataContext;
+    using Feedby.UI.Web.ActionFilters;
 
     using Microsoft.Web.Infrastructure.DynamicModuleHelper;
 
@@ -59,6 +61,7 @@ namespace Feedby.UI.Web.App_Start
         {
             kernel.Bind(x => x.FromAssembliesMatching("*").SelectAllClasses().BindDefaultInterface());
             kernel.Bind<DbContext>().To<FeedbyDataContext>().InRequestScope();
+            kernel.Bind<IActionInvoker>().To<InjectionFilterInvoker>().InTransientScope();
         }
     }
 }

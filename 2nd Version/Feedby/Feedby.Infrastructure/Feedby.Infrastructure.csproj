@@ -68,7 +68,6 @@
     <Compile Include="Services\IEntityService.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
     <None Include="Domain\ClassDiagram1.cd" />
     <None Include="packages.config" />
   </ItemGroup>
