@@ -39,5 +39,11 @@
             var query = new PartialNameQuery(name);
             return this.employeeRepository.FindBy(query, new[] { "Profile" });
         }
+
+        public Employee SingleByUsername(string username)
+        {
+            var query = new UsernameQuery(username);
+            return this.employeeRepository.Single(query, new[] { "Profile" });
+        }
     }
 }

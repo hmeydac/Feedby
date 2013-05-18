@@ -44,8 +44,10 @@
                 FirstName = firstName,
                 LastName = lastName,
                 Email = email,
-                Profile = profile
+                Profile = profile,
+                Username = "tuser"
             };
+
             return employee;
         }
     }

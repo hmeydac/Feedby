@@ -13,19 +13,27 @@
             @{
         foreach (var profile in this.Model)
         {
-                <div class="sidebar-profile profile">
-                    <img class="sidebar-profile-image" src="@profile.ProfileImageUrl" />
-                    <div class="sidebar-profile-content">
-                        <div>@profile.FirstName @profile.LastName</div>
-                        <div class="description">
-                            <img class="icon" src="~/Content/images/email.png" />
-                            <a href="mailto:@profile.Email">@profile.Email</a>
-                        </div>
+            <div class="sidebar-profile profile" onclick="viewProfile('@profile.Username');">
+                <img class="sidebar-profile-image" src="@profile.ProfileImageUrl" />
+                <div class="sidebar-profile-content">
+                    <div>@profile.FirstName @profile.LastName</div>
+                    <div class="description">
+                        <img class="icon" src="~/Content/images/email.png" />
+                        <a href="mailto:@profile.Email">@profile.Email</a>
                     </div>
                 </div>
+            </div>
         }   
             }
         </div>
     </div>
     }
 }
+
+<script>
+    var url = '/Profiles/';
+
+    function viewProfile(username) {
+        window.location = url + username;
+    }
+</script>

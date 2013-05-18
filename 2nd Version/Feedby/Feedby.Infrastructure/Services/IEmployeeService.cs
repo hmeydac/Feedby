@@ -7,5 +7,7 @@
     public interface IEmployeeService : IEntityService<Employee>
     {
         IEnumerable<Employee> FilterByName(string name);
+
+        Employee SingleByUsername(string username);
     }
 }

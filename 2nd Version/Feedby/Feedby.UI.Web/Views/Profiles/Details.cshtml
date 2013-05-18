@@ -1,0 +1,14 @@
+﻿@model Feedby.Infrastructure.Domain.Employee
+@{
+    ViewBag.Title = "Details";
+}
+
+
+@{
+    this.Html.RenderPartial("ProfilesSideBar");
+}
+
+<section class="main-section">
+    <div class="title">@this.Model.FirstName @this.Model.LastName</div>
+    <div>@this.Model.Profile.Bio.BioDescription</div>
+</section>

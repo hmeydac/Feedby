@@ -25,6 +25,12 @@
             return this.View();
         }
 
+        public ActionResult Details(string username)
+        {
+            var employee = this.employeeService.SingleByUsername(username);
+            return this.View(employee);
+        }
+
         [HttpPost]
         public ActionResult Search(string argument)
         {

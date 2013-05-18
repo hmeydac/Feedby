@@ -43,8 +43,10 @@
                                    FirstName = firstName,
                                    LastName = lastName,
                                    Email = "test@test.com",
-                                   Profile = profile
+                                   Profile = profile,
+                                   Username = "tuser"
                                };
+
             return employee;
         }
     }

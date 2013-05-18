@@ -27,7 +27,7 @@
 
         public TEntity Single(IQueryObject<TEntity> query, params string[] includes)
         {
-            if (includes == null)
+            if (!includes.Any())
             {
                 return this.entitySet.SingleOrDefault(query.GetQuery());
             }
@@ -43,7 +43,7 @@
 
         public IEnumerable<TEntity> FindBy(IQueryObject<TEntity> query, params string[] includes)
         {
-            if (includes == null)
+            if (!includes.Any())
             {
                 return this.entitySet.Where(query.GetQuery()).AsEnumerable();
             }

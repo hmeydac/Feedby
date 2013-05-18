@@ -43,7 +43,7 @@
             var argument = "arcos";
             var expectedList = employeeList.Where(e => e.FirstName.Contains(argument) || e.LastName.Contains(argument)).ToList();
             var employeeRepositoryMock = new Mock<IEntityRepository<Employee>>(MockBehavior.Strict);
-            employeeRepositoryMock.Setup(r => r.FindBy(It.IsAny<IQueryObject<Employee>>()))
+            employeeRepositoryMock.Setup(r => r.FindBy(It.IsAny<IQueryObject<Employee>>(), It.IsAny<string[]>()))
                                   .Returns(expectedList);
             var employeeService = new EmployeeService(employeeRepositoryMock.Object);
 
@@ -53,7 +53,7 @@
             // Assert
             Assert.IsNotNull(actual);
             CollectionAssert.AreEqual(expectedList, actual.ToList());
-            employeeRepositoryMock.Verify(r => r.FindBy(It.IsAny<IQueryObject<Employee>>()), Times.Once());
+            employeeRepositoryMock.Verify(r => r.FindBy(It.IsAny<IQueryObject<Employee>>(), It.IsAny<string[]>()), Times.Once());
         }
 
         private IEnumerable<Employee> GetEmployeeList()

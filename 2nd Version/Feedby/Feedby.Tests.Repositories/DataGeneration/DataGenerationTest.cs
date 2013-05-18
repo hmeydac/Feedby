@@ -37,6 +37,7 @@
                                        Profile = profile
                                    };
 
+                employee.Username = string.Format("{0}{1}", employee.FirstName[0], employee.LastName);
                 employee.Email = string.Format("{0}@{1}.net", employee.FirstName, employee.LastName);
                 context.Set<Employee>().Add(employee);
             }

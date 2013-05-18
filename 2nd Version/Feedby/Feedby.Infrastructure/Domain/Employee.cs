@@ -18,6 +18,9 @@
         [MaxLength(100), Required]
         public string Email { get; set; }
 
+        [MaxLength(32), Required]
+        public string Username { get; set; }
+
         [Required]
         public UserProfile Profile { get; set; }
 
