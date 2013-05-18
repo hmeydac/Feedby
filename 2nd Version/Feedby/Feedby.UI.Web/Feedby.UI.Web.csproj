@@ -162,8 +162,15 @@
   <ItemGroup>
     <Content Include="Content\forms.css" />
     <Content Include="Content\compose-review.css" />
+    <Content Include="Content\images\ajerz.jpg" />
+    <Content Include="Content\images\avatar_juanar.jpg" />
+    <Content Include="Content\images\dmartinez.jpg" />
+    <Content Include="Content\images\email.png" />
     <Content Include="Content\images\jarguello.jpg" />
     <Content Include="Content\images\calendar.png" />
+    <Content Include="Content\images\jrowies.png" />
+    <Content Include="Content\images\loading.gif" />
+    <Content Include="Content\images\mconverti.jpg" />
     <Content Include="Content\images\right.png" />
     <Content Include="Content\reviews.css" />
     <Content Include="Content\sidebar.css" />

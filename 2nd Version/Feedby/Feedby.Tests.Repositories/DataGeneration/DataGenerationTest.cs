@@ -10,7 +10,7 @@
     [TestClass]
     public class DataGenerationTest
     {
-        private const string PictureUrl = "~/content/images/jarguello.jpg";
+        private readonly string[] pictureUrls = { "/content/images/jarguello.jpg", "/content/images/ajerz.jpg", "/content/images/jrowies.png", "/content/images/mconverti.jpg", "/content/images/dmartinez.jpg" };
 
         private readonly string[] firstNames = { "Jorge", "Marcos", "Hernan", "Martin", "Damian", "Juan" };
 
@@ -28,14 +28,16 @@
                 var rand = new Random((int)DateTime.Now.Ticks);
                 var bio = this.CreateUserBio(string.Format("Sample Bio {0}", i));
                 var profile = this.CreateProfile(bio);
+                profile.PictureUrl = this.pictureUrls[i];
                 var employee = new Employee
                                    {
                                        Id = Guid.NewGuid(),
                                        FirstName = this.firstNames[rand.Next(0, this.firstNames.Length - 1)],
                                        LastName = this.lastNames[rand.Next(0, this.lastNames.Length - 1)],
-                                       Email = "testing@something.net",
                                        Profile = profile
                                    };
+
+                employee.Email = string.Format("{0}@{1}.net", employee.FirstName, employee.LastName);
                 context.Set<Employee>().Add(employee);
             }
 
@@ -56,7 +58,6 @@
             return new UserProfile
                        {
                            Id = Guid.NewGuid(),
-                           PictureUrl = PictureUrl,
                            Bio = bio
                        };
         }

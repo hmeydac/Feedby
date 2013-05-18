@@ -8,11 +8,9 @@
     {
         IEnumerable<TEntity> GetAll();
 
-        TEntity Single(IQueryObject<TEntity> query);
+        TEntity Single(IQueryObject<TEntity> query, params string[] includes);
 
-        TEntity Single(IQueryObject<TEntity> query, string[] includes);
-
-        IEnumerable<TEntity> FindBy(IQueryObject<TEntity> query);
+        IEnumerable<TEntity> FindBy(IQueryObject<TEntity> query, params string[] includes);
 
         TEntity Insert(TEntity entity);
 

@@ -1,6 +1,5 @@
 ﻿namespace Feedby.Infrastructure.Repositories
 {
-    using System;
     using System.Collections.Generic;
     using System.Data;
     using System.Data.Entity;
@@ -26,16 +25,11 @@
             return this.entitySet.AsEnumerable();
         }
 
-        public TEntity Single(IQueryObject<TEntity> query)
-        {
-            return this.entitySet.SingleOrDefault(query.GetQuery());
-        }
-
-        public TEntity Single(IQueryObject<TEntity> query, string[] includes)
+        public TEntity Single(IQueryObject<TEntity> query, params string[] includes)
         {
             if (includes == null)
             {
-                throw new ArgumentNullException("includes");
+                return this.entitySet.SingleOrDefault(query.GetQuery());
             }
 
             DbQuery<TEntity> queryPath = null;
@@ -47,9 +41,20 @@
             return queryPath.SingleOrDefault(query.GetQuery());
         }
 
-        public IEnumerable<TEntity> FindBy(IQueryObject<TEntity> query)
+        public IEnumerable<TEntity> FindBy(IQueryObject<TEntity> query, params string[] includes)
         {
-            return this.entitySet.Where(query.GetQuery()).AsEnumerable();
+            if (includes == null)
+            {
+                return this.entitySet.Where(query.GetQuery()).AsEnumerable();
+            }
+
+            DbQuery<TEntity> queryPath = null;
+            foreach (var include in includes)
+            {
+                queryPath = this.entitySet.Include(include);
+            }
+
+            return queryPath.Where(query.GetQuery()).AsEnumerable();
         }
 
         public TEntity Insert(TEntity entity)

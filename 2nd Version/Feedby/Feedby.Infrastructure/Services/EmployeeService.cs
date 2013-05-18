@@ -37,7 +37,7 @@
         public IEnumerable<Employee> FilterByName(string name)
         {
             var query = new PartialNameQuery(name);
-            return this.employeeRepository.FindBy(query);
+            return this.employeeRepository.FindBy(query, new[] { "Profile" });
         }
     }
 }

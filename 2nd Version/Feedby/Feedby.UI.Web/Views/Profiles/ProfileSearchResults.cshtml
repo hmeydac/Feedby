@@ -11,13 +11,19 @@
         <div class="subtitle underline">Filtered Results</div>
         <div class="sidebar-list">
             @{
-                foreach (var profile in this.Model)
-                {
-                    <div class="sidebar-profile profile">
-                        <img src="~/Content/images/jarguello.jpg" />
-                        <div class="sidebar-profile-name">@profile.FirstName @profile.LastName</div>
+        foreach (var profile in this.Model)
+        {
+                <div class="sidebar-profile profile">
+                    <img class="sidebar-profile-image" src="@profile.ProfileImageUrl" />
+                    <div class="sidebar-profile-content">
+                        <div>@profile.FirstName @profile.LastName</div>
+                        <div class="description">
+                            <img class="icon" src="~/Content/images/email.png" />
+                            <a href="mailto:@profile.Email">@profile.Email</a>
+                        </div>
                     </div>
-                }   
+                </div>
+        }   
             }
         </div>
     </div>

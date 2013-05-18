@@ -40,6 +40,7 @@
                     .ForMember(e => e.Id, o => o.MapFrom(e => e.Id))
                     .ForMember(e => e.FirstName, o => o.MapFrom(e => e.FirstName))
                     .ForMember(e => e.LastName, o => o.MapFrom(e => e.LastName))
+                    .ForMember(e => e.Email, o => o.MapFrom(e => e.Email))
                     .ForMember(e => e.ProfileImageUrl, o => o.MapFrom(e => e.Profile.PictureUrl));
         }
     }

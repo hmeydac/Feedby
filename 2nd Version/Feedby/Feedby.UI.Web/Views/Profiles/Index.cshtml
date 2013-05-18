@@ -8,19 +8,20 @@
 
 <section class="main-section">
     <div class="title">Active Profiles</div>
-   <form id="search">
+    <form id="search">
         <div class="filter-panel">
             <div class="small-title">Search for</div>
             <input type="search" name="argument" placeholder="Who are you looking for?" />
             <input type="submit" value="Search" />
+            
+                
+                <img class="loading-indicator" src="~/Content/images/loading.gif"></img>
+            
         </div>
     </form>
     <div class="loading-indicator hide">
-
-
-    </div> 
+    </div>
     <div id="profileResults">
-        
     </div>
 </section>
 
@@ -37,6 +38,6 @@
             return false;
         });
 
-       
+
     </script>
 }
