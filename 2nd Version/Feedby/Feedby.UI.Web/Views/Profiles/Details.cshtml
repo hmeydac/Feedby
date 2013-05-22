@@ -1,4 +1,4 @@
-﻿@model Feedby.Infrastructure.Domain.Employee
+﻿@model Feedby.UI.Web.Models.UserProfileModel
 @{
     ViewBag.Title = "Details";
 }
@@ -9,6 +9,39 @@
 }
 
 <section class="main-section">
-    <div class="title">@this.Model.FirstName @this.Model.LastName</div>
-    <div>@this.Model.Profile.Bio.BioDescription</div>
+    <div>
+        <img class="profile-image" src="@this.Model.ProfileImageUrl" />
+        <div class="profile-content">
+            <div class="title">@this.Model.FullName</div>
+            <div class="subtitle">Position: LED</div>
+            <div class="description">
+                <img class="icon" src="~/Content/images/email.png" />
+                <a href="mailto:@this.Model.Email">@this.Model.Email</a>
+            </div>
+        </div>
+    </div>
+    <div class="bio">
+        <div class="subtitle">Bio</div>
+        <div>@this.Model.Bio</div>
+    </div>
+    <div class="skills">
+        <div class="subtitle">Skills</div>
+        <div>
+            <div class="skill-point"></div>
+            <div class="skill-point"></div>
+            <div class="skill-point"></div>
+            <div class="skill-text">Windows Azure Media Services</div>
+        </div>
+        <div>
+            <div class="skill-point"></div>
+            <div class="skill-point"></div>
+            <div class="skill-point"></div>
+            <div class="skill-point"></div>
+            <div class="skill-text">MVC 4</div>
+        </div>
+        <div>
+            <div class="skill-point"></div>
+            <div class="skill-text">jQuery</div>
+        </div>
+    </div>
 </section>

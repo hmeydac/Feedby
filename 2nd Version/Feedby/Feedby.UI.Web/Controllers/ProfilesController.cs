@@ -28,7 +28,7 @@
         public ActionResult Details(string username)
         {
             var employee = this.employeeService.SingleByUsername(username);
-            return this.View(employee);
+            return this.View(Mapper.Map<UserProfileModel>(employee));
         }
 
         [HttpPost]

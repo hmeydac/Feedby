@@ -51,20 +51,19 @@
 .sidebar-profile {
     margin-bottom: 10px;
     width: 100%;
-    border-radius: 10px;
-    padding: 1px;
-    transition: 0.2s;
+    
+    padding: 5px ;
+    transition: 0.4s;
 }
 
 .sidebar-profile:hover
 {
-    background-color: rgb(70, 115, 195);
-    color: white;
+    background-color: rgb(225, 235, 245);
     cursor: pointer;
 }
 
 .sidebar-profile:hover a {
-    color: white;
+    
 }
 
 .sidebar-profile-image

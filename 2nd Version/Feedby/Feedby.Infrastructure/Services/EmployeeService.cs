@@ -43,7 +43,7 @@
         public Employee SingleByUsername(string username)
         {
             var query = new UsernameQuery(username);
-            return this.employeeRepository.Single(query, new[] { "Profile" });
+            return this.employeeRepository.Single(query, new[] { "Profile", "Profile.Bio" });
         }
     }
 }

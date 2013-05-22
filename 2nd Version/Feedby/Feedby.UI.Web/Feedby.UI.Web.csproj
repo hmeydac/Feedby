@@ -172,6 +172,7 @@
     <Content Include="Content\images\loading.gif" />
     <Content Include="Content\images\mconverti.jpg" />
     <Content Include="Content\images\right.png" />
+    <Content Include="Content\profiles.css" />
     <Content Include="Content\reviews.css" />
     <Content Include="Content\sidebar.css" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />

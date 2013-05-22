@@ -29,6 +29,7 @@ namespace Feedby.UI.Web
                 "~/Content/reviews.css",
                 "~/Content/forms.css",
                 "~/Content/sidebar.css",
+                "~/Content/profiles.css",
                 "~/Content/compose-review.css"));
 
             bundles.Add(new StyleBundle("~/Content/themes/base/css").Include(

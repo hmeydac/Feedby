@@ -16,6 +16,8 @@
 
         public string ProfileImageUrl { get; set; }
 
+        public string Bio { get; set; }
+
         public string FullName
         {
             get
