@@ -1,0 +1,57 @@
+﻿@using Feedby.Infrastructure.Domain
+@using Feedby.UI.Web.Models
+@model Dictionary<string, List<Feedby.UI.Web.Models.FeedbackModel>>
+
+@{
+    ViewBag.Title = "Recent Feedbacks";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    this.Html.RenderPartial("FeedbacksSidebar");
+}
+
+@{
+    var reviewIndex = 0;
+}
+
+<section class="main-section">
+    
+    <div class="recentFeedbacks tableWrapper">
+        <div class="table">
+            @foreach (var pair in Model)
+            {
+                ViewBag.Right = (reviewIndex & 1) != 0; // odds on the right
+                ViewBag.CurrentItem = pair;
+                
+	            <div class="row">
+		            <div class="leftCol mainLeftCol">
+		                @if (!ViewBag.Right)
+		                {
+		                    @Html.Partial("_RecentFeedbacksPartial", Model)
+		                }
+		            </div>
+		            <div class="rightCol mainRightCol">
+		                @if (ViewBag.Right)
+		                {
+		                    @Html.Partial("_RecentFeedbacksPartial", Model)
+		                }
+		            </div>
+	            </div>
+
+                reviewIndex++;
+            }
+
+        </div>
+    </div>
+
+</section>
+
+@section scripts{
+@*    <script src="~/Scripts/app.js"></script>
+    <script src="~/Scripts/controllers/review.controller.js"></script>
+    <script type="text/javascript">
+        var controller = new Feedby.ReviewController($("#review-container"));
+        controller.init();
+    </script>*@
+}
