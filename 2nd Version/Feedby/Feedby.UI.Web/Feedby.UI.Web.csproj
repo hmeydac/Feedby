@@ -285,6 +285,7 @@
     <Content Include="Views\Reviews\Details.cshtml" />
     <Content Include="Views\Reviews\ReviewSidebar.cshtml" />
     <Content Include="Views\Profiles\Details.cshtml" />
+    <Content Include="Views\Profiles\ReviewerProfileSideBar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

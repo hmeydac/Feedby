@@ -5,7 +5,7 @@
 
 
 @{
-    this.Html.RenderPartial("ProfilesSideBar");
+    this.Html.RenderPartial("ReviewerProfileSideBar");
 }
 
 <section class="main-section">
@@ -24,24 +24,8 @@
         <div class="subtitle">Bio</div>
         <div>@this.Model.Bio</div>
     </div>
-    <div class="skills">
-        <div class="subtitle">Skills</div>
-        <div>
-            <div class="skill-point"></div>
-            <div class="skill-point"></div>
-            <div class="skill-point"></div>
-            <div class="skill-text">Windows Azure Media Services</div>
-        </div>
-        <div>
-            <div class="skill-point"></div>
-            <div class="skill-point"></div>
-            <div class="skill-point"></div>
-            <div class="skill-point"></div>
-            <div class="skill-text">MVC 4</div>
-        </div>
-        <div>
-            <div class="skill-point"></div>
-            <div class="skill-text">jQuery</div>
-        </div>
-    </div>
+    <ul class="action-buttons">
+        <li class="button-blue">Submit Feedback</li>
+        <li class="button-blue">Create Review</li>
+    </ul>
 </section>

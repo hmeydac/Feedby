@@ -83,8 +83,13 @@
     border: none;
     text-transform: uppercase;
     padding: 10px;
+    cursor: pointer;
 }
 
+.button-blue:hover {
+    background-color: rgb(0, 0, 180);
+    color: white;
+}
 
 .filter-panel {
     margin: 15px 0;

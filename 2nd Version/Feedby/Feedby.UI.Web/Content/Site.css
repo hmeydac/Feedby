@@ -82,3 +82,16 @@ input {
     font-size: 10pt;
     font-weight: 100;
 }
+
+.action-buttons {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 0;
+}
+
+.action-buttons li {
+    max-width: 150px;
+    text-align: center;
+    display: inline-block;
+    margin-right: 10px;
+}
