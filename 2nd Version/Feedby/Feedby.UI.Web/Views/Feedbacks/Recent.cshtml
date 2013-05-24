@@ -1,6 +1,5 @@
-﻿@using Feedby.Infrastructure.Domain
-@using Feedby.UI.Web.Models
-@model Dictionary<string, List<Feedby.UI.Web.Models.FeedbackModel>>
+﻿@using Feedby.UI.Web.Models
+@model IEnumerable<Feedby.UI.Web.Models.Feedbacks.GroupedFeedbacksModel>
 
 @{
     ViewBag.Title = "Recent Feedbacks";
@@ -19,22 +18,22 @@
     
     <div class="recentFeedbacks tableWrapper">
         <div class="table">
-            @foreach (var pair in Model)
+            @foreach (var item in Model)
             {
                 ViewBag.Right = (reviewIndex & 1) != 0; // odds on the right
-                ViewBag.CurrentItem = pair;
+                ViewBag.CurrentItem = item;
                 
 	            <div class="row">
 		            <div class="leftCol mainLeftCol">
 		                @if (!ViewBag.Right)
 		                {
-		                    @Html.Partial("_RecentFeedbacksPartial", Model)
+		                    @Html.Partial("_RecentFeedbacksPartial")
 		                }
 		            </div>
 		            <div class="rightCol mainRightCol">
 		                @if (ViewBag.Right)
 		                {
-		                    @Html.Partial("_RecentFeedbacksPartial", Model)
+		                    @Html.Partial("_RecentFeedbacksPartial")
 		                }
 		            </div>
 	            </div>

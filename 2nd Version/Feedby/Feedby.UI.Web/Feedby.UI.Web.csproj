@@ -148,6 +148,9 @@
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\FeedbacksController.cs" />
+    <Compile Include="Models\Feedbacks\GroupedFeedbacksKeyModel.cs" />
+    <Compile Include="Models\Feedbacks\GroupedFeedbacksModel.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProfilesController.cs" />
     <Compile Include="Controllers\ReviewsController.cs" />
@@ -156,10 +159,14 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\DomainConstants.cs" />
+    <Compile Include="Models\Feedbacks\FeedbackModel.cs" />
     <Compile Include="Models\UserProfileModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utils\DateUtils.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\font\fontawesome-webfont.svg" />
+    <Content Include="Content\font-awesome.css" />
     <Content Include="Content\forms.css" />
     <Content Include="Content\compose-review.css" />
     <Content Include="Content\images\ajerz.jpg" />
@@ -175,6 +182,7 @@
     <Content Include="Content\profiles.css" />
     <Content Include="Content\reviews.css" />
     <Content Include="Content\sidebar.css" />
+    <Content Include="Content\recent-feedbacks.css" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
@@ -232,6 +240,10 @@
     <Content Include="Content\top_header.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Content\font\fontawesome-webfont.eot" />
+    <Content Include="Content\font\fontawesome-webfont.ttf" />
+    <Content Include="Content\font\fontawesome-webfont.woff" />
+    <Content Include="Content\font\FontAwesome.otf" />
     <None Include="Scripts\libs\jquery-1.7.1.intellisense.js" />
     <Content Include="Scripts\app.js" />
     <Content Include="Scripts\controllers\search.controller.js" />
@@ -285,6 +297,9 @@
     <Content Include="Views\Reviews\Details.cshtml" />
     <Content Include="Views\Reviews\ReviewSidebar.cshtml" />
     <Content Include="Views\Profiles\Details.cshtml" />
+    <Content Include="Views\Feedbacks\Recent.cshtml" />
+    <Content Include="Views\Feedbacks\_RecentFeedbacksPartial.cshtml" />
+    <Content Include="Views\Feedbacks\FeedbacksSidebar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
