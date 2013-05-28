@@ -11,6 +11,7 @@
 
             // Profiles Routes
             routes.MapRoute("SearchProfiles", "Profiles/Search", new { controller = "Profiles", action = "Search" });
+            routes.MapRoute("RecentActivity", "Profiles/RecentActivity", new { controller = "Profiles", action = "RecentActivity" });
             routes.MapRoute("Profile", "Profiles/{username}", new { controller = "Profiles", action = "Details" });
 
             // Default Route

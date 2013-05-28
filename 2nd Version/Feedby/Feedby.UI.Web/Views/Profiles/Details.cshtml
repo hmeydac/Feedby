@@ -29,3 +29,16 @@
         <li class="button-blue">Create Review</li>
     </ul>
 </section>
+
+@section scripts{
+    <script src="~/Scripts/app.js"></script>
+    <script src="~/Scripts/controllers/recent-activity.controller.js"></script>
+    <script type="text/javascript">
+        var controller = new Feedby.RecentActivityController($("#recentActivity"));
+
+        $(document).ready(function () {
+            controller.fetch();
+            return false;
+        });
+    </script>
+}

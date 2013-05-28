@@ -15,7 +15,7 @@
 }
 
 <section class="main-section">
-    
+
     <div class="recentFeedbacks tableWrapper">
         <div class="table">
             @foreach (var item in Model)
@@ -23,22 +23,22 @@
                 ViewBag.Right = (reviewIndex & 1) != 0; // odds on the right
                 ViewBag.CurrentItem = item;
                 
-	            <div class="row">
-		            <div class="leftCol mainLeftCol">
-		                @if (!ViewBag.Right)
-		                {
-		                    @Html.Partial("_RecentFeedbacksPartial")
-		                }
-		            </div>
-		            <div class="rightCol mainRightCol">
-		                @if (ViewBag.Right)
-		                {
-		                    @Html.Partial("_RecentFeedbacksPartial")
-		                }
-		            </div>
-	            </div>
+                <div class="row">
+                    <div class="leftCol mainLeftCol">
+                        @if (!ViewBag.Right)
+                        {
+                            @Html.Partial("_RecentFeedbacksPartial")
+                        }
+                    </div>
+                    <div class="rightCol mainRightCol">
+                        @if (ViewBag.Right)
+                        {
+                            @Html.Partial("_RecentFeedbacksPartial")
+                        }
+                    </div>
+                </div>
 
-                reviewIndex++;
+                        reviewIndex++;
             }
 
         </div>
@@ -47,7 +47,7 @@
 </section>
 
 @section scripts{
-@*    <script src="~/Scripts/app.js"></script>
+    @*    <script src="~/Scripts/app.js"></script>
     <script src="~/Scripts/controllers/review.controller.js"></script>
     <script type="text/javascript">
         var controller = new Feedby.ReviewController($("#review-container"));

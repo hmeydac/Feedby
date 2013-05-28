@@ -246,6 +246,7 @@
     <Content Include="Content\font\FontAwesome.otf" />
     <None Include="Scripts\libs\jquery-1.7.1.intellisense.js" />
     <Content Include="Scripts\app.js" />
+    <Content Include="Scripts\controllers\recent-activity.controller.js" />
     <Content Include="Scripts\controllers\search.controller.js" />
     <Content Include="Scripts\controllers\review.controller.js" />
     <Content Include="Scripts\libs\jquery-1.7.1.js" />
@@ -301,6 +302,7 @@
     <Content Include="Views\Profiles\ReviewerProfileSideBar.cshtml" />
     <Content Include="Views\Feedbacks\_RecentFeedbacksPartial.cshtml" />
     <Content Include="Views\Feedbacks\FeedbacksSidebar.cshtml" />
+    <Content Include="Views\Profiles\RecentFeedbackActivity.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
