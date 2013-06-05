@@ -54,7 +54,7 @@
                 queryPath = this.entitySet.Include(include);
             }
 
-            return queryPath.Where(query.GetQuery()).AsEnumerable();
+            return queryPath.Where(query.GetQuery()).Skip(query.Skip).Take(query.Take).AsEnumerable();
         }
 
         public TEntity Insert(TEntity entity)

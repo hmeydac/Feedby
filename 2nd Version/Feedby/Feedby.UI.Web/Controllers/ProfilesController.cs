@@ -18,9 +18,12 @@
     {
         private readonly IEmployeeService employeeService;
 
-        public ProfilesController(IEmployeeService employeeService)
+        private readonly IReviewService reviewService;
+
+        public ProfilesController(IEmployeeService employeeService, IReviewService reviewService)
         {
             this.employeeService = employeeService;
+            this.reviewService = reviewService;
         }
 
         public ActionResult Index()
@@ -47,6 +50,7 @@
 
         public ActionResult RecentActivity()
         {
+            var review = this.reviewService.GetLastReviews("pepe", 0, 5);
             var viewModel = this.GetRecentActivity();
             return this.PartialView("RecentFeedbackActivity", viewModel);
         }

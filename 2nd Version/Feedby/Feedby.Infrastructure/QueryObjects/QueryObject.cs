@@ -1,7 +1,6 @@
 ﻿namespace Feedby.Infrastructure.QueryObjects
 {
     using System;
-    using System.Linq.Expressions;
 
     public abstract class QueryObject<TEntity> : IQueryObject<TEntity>
     {
@@ -9,6 +8,10 @@
         {
             this.UseCompiled = useCompiled;
         }
+
+        public int Skip { get; set; }
+
+        public int Take { get; set; }
 
         protected bool UseCompiled
         {
