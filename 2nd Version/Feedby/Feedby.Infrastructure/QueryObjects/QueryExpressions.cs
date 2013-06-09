@@ -14,6 +14,7 @@
 
         private static readonly Expression<Func<Employee, Guid, bool>> EmployeeIdExpression = (employee, id) => employee.Id.Equals(id);
 
+        private static readonly Expression<Func<Review, string, bool>> UserReviewsExpression = (review, username) => review.To.Username.Equals(username);
         #endregion
 
         #region Compiled Expressions
@@ -22,6 +23,8 @@
         public static readonly Func<Employee, Guid, bool> EmployeeId = EmployeeIdExpression.Compile();
 
         public static readonly Func<Employee, string, bool> EmployeePartialName = EmployeePartialNameExpression.Compile();
+
+        public static readonly Func<Review, string, bool> UserReviews = UserReviewsExpression.Compile();
         #endregion
         
     }

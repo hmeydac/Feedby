@@ -1,0 +1,37 @@
+﻿@using Feedby.Infrastructure.Domain
+@model IEnumerable<Feedby.UI.Web.Models.Feedbacks.GroupedFeedbacksModel>
+
+@foreach (var week in this.Model)
+{
+    var weekString = week.Key.Year + "w" + week.Key.Week;
+    <div class="sidebar-subtitle">@weekString</div>
+    foreach (var feedbacks in week.FeedbacksByReviewer)
+    {
+        foreach (var feedback in feedbacks)
+        {
+            string feedbackTypeClass;
+            switch (feedback.FeedbackType)
+            {
+                case FeedbackType.Positive:
+                    feedbackTypeClass = "positive";
+                    break;
+                case FeedbackType.Negative:
+                    feedbackTypeClass = "negative";
+                    break;
+                case FeedbackType.Improve:
+                    feedbackTypeClass = "improvement";
+                    break;
+                default:
+                    feedbackTypeClass = string.Empty;
+                    break;
+            }
+    <div class="projects">
+        @foreach (var project in feedback.Projects)
+        {
+            <span class="project small-title">@project</span>
+        }
+    </div>
+    <div class="sidebar-feedback @feedbackTypeClass-feedback">@feedback.Text</div>    
+        }
+    }
+}

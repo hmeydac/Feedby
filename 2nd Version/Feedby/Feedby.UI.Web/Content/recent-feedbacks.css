@@ -86,10 +86,7 @@
 .weekHeader .project {
 	font-size: 0.6em;
 	font-weight: bold;
-	padding-right: 3px;
-	padding-left: 3px;
-	padding-bottom: 3px;
-	padding-top: 2px;
+    padding: 2px 3px 3px 3px;
 }
 
 .weekHeader .result {

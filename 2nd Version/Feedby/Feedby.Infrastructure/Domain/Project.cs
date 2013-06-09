@@ -11,6 +11,6 @@
 
         public string Name { get; set; }
 
-        public IList<Feedback> Feedbacks { get; set; } 
+        public IList<Feedback> Feedbacks { get; set; }  
     }
 }

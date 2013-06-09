@@ -8,7 +8,7 @@
     bottom: 0;
     padding-top: 15px;
     padding-left: 15px;
-    overflow: auto;
+    overflow:auto;
     border-right: 1px solid rgb(200, 200, 200);
 }
 
@@ -93,4 +93,9 @@
 
 .improvement-feedback {
     border-left: 5px solid rgb(210, 170, 15);
+}
+
+.overflow {
+    margin-right: 5px;
+    margin-bottom: 5px;    
 }

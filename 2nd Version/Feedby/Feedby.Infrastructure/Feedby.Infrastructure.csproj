@@ -56,6 +56,7 @@
     <Compile Include="Domain\Review.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QueryObjects\PagedUserReviewsQuery.cs" />
     <Compile Include="QueryObjects\UsernameQuery.cs" />
     <Compile Include="QueryObjects\EmployeeIdQuery.cs" />
     <Compile Include="QueryObjects\IQueryObject.cs" />
@@ -67,6 +68,8 @@
     <Compile Include="Services\EmployeeService.cs" />
     <Compile Include="Services\IEmployeeService.cs" />
     <Compile Include="Services\IEntityService.cs" />
+    <Compile Include="Services\IReviewService.cs" />
+    <Compile Include="Services\ReviewService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Domain\ClassDiagram1.cd" />
