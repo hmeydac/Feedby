@@ -1,5 +1,4 @@
-﻿.sidebar
-{
+﻿.sidebar {
     width: 250px;
     background-color: rgb(240, 240, 240);
     vertical-align: bottom;
@@ -13,35 +12,30 @@
     border-right: 1px solid rgb(200, 200, 200);
 }
 
-.sidebar-subtitle
-{
+.sidebar-subtitle {
     margin-top: 10px;
     color: rgb(138, 138, 138);
     font-size: 10pt;
 }
 
-.sidebar-list
-{
+.sidebar-list {
     margin-top: 5px;
     margin-right: 15px;
 }
 
-.sidebar-button
-{
+.sidebar-button {
     padding: 5px;
     font-size: 12pt;
     color: rgb(70, 70, 70);
 }
 
-.sidebar-button-glyph
-{
+.sidebar-button-glyph {
     float: right;
     font-weight: bold;
     margin-right: 20px;
 }
 
-.sidebar-button:hover
-{
+.sidebar-button:hover {
     border-radius: 5px;
     background-color: rgb(70, 115, 195);
     color: white;
@@ -51,23 +45,19 @@
 .sidebar-profile {
     margin-bottom: 10px;
     width: 100%;
-    
-    padding: 5px ;
+    padding: 5px;
     transition: 0.4s;
 }
 
-.sidebar-profile:hover
-{
-    background-color: rgb(225, 235, 245);
-    cursor: pointer;
-}
+    .sidebar-profile:hover {
+        background-color: rgb(225, 235, 245);
+        cursor: pointer;
+    }
 
-.sidebar-profile:hover a {
-    
-}
+        .sidebar-profile:hover a {
+        }
 
-.sidebar-profile-image
-{
+.sidebar-profile-image {
     vertical-align: middle;
     width: 50px;
     border-radius: 10px;
@@ -75,12 +65,32 @@
     box-shadow: 1px 1px 5px black;
 }
 
-.sidebar-profile-content
-{
+.sidebar-profile-content {
     display: inline-block;
     font-size: 12pt;
     font-weight: normal;
     margin-left: 10px;
     position: relative;
     vertical-align: middle;
+}
+
+
+.sidebar-feedback {
+    margin-top: 5px;
+    padding-left: 5px;
+    padding-bottom: 5px;
+    font-size: 9pt;
+    border-bottom: 1px solid rgb(200, 200, 200);
+}
+
+.positive-feedback {
+    border-left: 5px solid green;
+}
+
+.negative-feedback {
+    border-left: 5px solid red;
+}
+
+.improvement-feedback {
+    border-left: 5px solid rgb(210, 170, 15);
 }

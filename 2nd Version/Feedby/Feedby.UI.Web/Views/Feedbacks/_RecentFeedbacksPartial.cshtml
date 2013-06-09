@@ -1,0 +1,70 @@
+﻿@using System.Globalization
+@using Feedby.Infrastructure.Domain
+@using Feedby.UI.Web.Models
+@using Feedby.UI.Web.Models.Feedbacks
+@using Feedby.UI.Web.Utils
+
+@{
+    bool right = ViewBag.Right;
+    GroupedFeedbacksModel currentItem = ViewBag.CurrentItem;
+}
+
+<div class="feedback">
+    <div class="@(right ? "arrowRight" : "arrowLeft")">
+		<span class="@(right ? "icon-caret-right" : "icon-caret-left")"></span>
+	</div>
+	<div class="weekHeader @(right ? "weekHeaderRight" : "weekHeaderLeft")">
+	    
+        <div class="weekHeader-line1">
+	        <span class="week">Week @currentItem.Key.Week</span>
+ 	        <div class="projects">
+	            @foreach (var project in currentItem.Key.Projects)
+			    {
+    		        <span class="project" style="background-color: rgb(68, 114, 196); color: rgb(189, 215, 238);">@project</span>
+			    }
+	        </div>
+	        <span class="result">Meets[TBC]</span>
+        </div>
+
+        <div class="weekHeader-line2">
+	        <span class="weekDates">@DateUtils.GetWeekDates(currentItem.Key.From, currentItem.Key.To) / @currentItem.Key.Year</span>
+        </div>
+	</div>
+
+    @foreach (var feedbacks in currentItem.FeedbacksByReviewer)
+    {
+        <div class="feedbacksTable table">
+            <div class="row">
+                <div class="leftCol">
+                    <img class="reviewerAvatar" src="./lito.gif" alt="Reviewer Photo Here [TBC]" />
+                </div>
+                <div class="rightCol">
+                    @foreach (var item in feedbacks)
+                    {
+                        string feedbackTypeClass;
+                        switch (item.FeedbackType)
+                        {
+                            case FeedbackType.Positive:
+                                feedbackTypeClass = "positive";
+                                break;
+                            case FeedbackType.Negative:
+                                feedbackTypeClass = "negative";
+                                break;
+                            case FeedbackType.Improve:
+                                feedbackTypeClass = "improvement";
+                                break;
+                            default:
+                                feedbackTypeClass = string.Empty;
+                                break;
+                        }
+
+                        <div class="feedbackItem @feedbackTypeClass">@item.Text</div>
+                    }
+
+                    <div class="notes"><span class="notes-title"></span>[TBC] Here the reviewer can include additional notes, something like, "nothing much to say, this was a quiet week" or anything that might be useful to better understand the contents of the week's feedback.</div>
+						            
+                </div>
+            </div>
+        </div>
+    }
+</div>
