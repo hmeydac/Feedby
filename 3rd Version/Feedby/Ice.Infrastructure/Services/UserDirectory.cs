@@ -2,6 +2,8 @@ namespace Ice.Infrastructure.Services
 {
     using System;
     using System.Data.Entity;
+    using System.Data.Entity.Infrastructure;
+    using System.Diagnostics;
     using System.Linq;
     using System.Linq.Expressions;
 
@@ -35,7 +37,7 @@ namespace Ice.Infrastructure.Services
             var skipCount = (pageNumber - 1) * resultsPerPage;
             var takeCount = resultsPerPage;
 
-            return this.DataSet.OrderBy(DefaultSortExpression).Skip(skipCount).Take(takeCount).ToArray();
+            return this.GetExpandedUserQuery().OrderBy(DefaultSortExpression).Skip(skipCount).Take(takeCount).ToArray();
         }
 
         public void AddUser(User expectedUser)
@@ -46,18 +48,32 @@ namespace Ice.Infrastructure.Services
         public User GetUser(Guid id)
         {
             Func<User, bool> query = (u) => UserIdQuery(u, id);
-            return this.DataSet.SingleOrDefault(query);
+            return this.GetExpandedUserQuery().SingleOrDefault(query);
         }
 
         public bool CommitChanges()
         {
-            return this.Context.SaveChanges() > 0;
+            try
+            {
+                return this.Context.SaveChanges() > 0;
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e.Message);
+            }
+
+            return false;
         }
 
         public void RemoveUser(Guid id)
         {
             var removeEntity = this.GetUser(id);
             this.DataSet.Remove(removeEntity);
+        }
+
+        private DbQuery<User> GetExpandedUserQuery()
+        {
+            return this.DataSet.Include("Profile");
         }
     }
 }

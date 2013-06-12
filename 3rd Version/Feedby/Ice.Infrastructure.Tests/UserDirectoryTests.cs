@@ -2,7 +2,6 @@
 {
     using System;
     using System.Linq;
-    using System.Transactions;
 
     using Ice.Infrastructure.Entities;
     using Ice.Infrastructure.Services;
@@ -12,16 +11,8 @@
     using Ninject;
 
     [TestClass]
-    public class UserDirectoryTest : InjectionUnitTest
+    public class UserDirectoryTests : TransactionalUnitTest
     {
-        private TransactionScope transaction;
-
-        [TestInitialize]
-        public void StartScope()
-        {
-            this.transaction = new TransactionScope();
-        }
-
         [TestMethod]
         public void QueryFullUserDirectory()
         {
@@ -63,13 +54,13 @@
             var currentCount = directory.GetUsers().Count();
             const int ExpectedCount = 0;
             var userToDelete = directory.GetUsers().FirstOrDefault();
-            
+
             // Act
             directory.RemoveUser(userToDelete.Id);
             directory.CommitChanges();
             var actualCount = directory.GetUsers().Count();
             var actual = directory.GetUser(userToDelete.Id);
-            
+
             // Assert
             Assert.AreNotEqual(currentCount, actualCount);
             Assert.AreEqual(ExpectedCount, actualCount);
@@ -114,7 +105,7 @@
             // Act
             var firstPageUsers = directory.GetUsers(PageNumber, ResultsPerPage);
             var secondPageUsers = directory.GetUsers(PageNumber + 1, ResultsPerPage);
-            
+
             // Assert
             Assert.AreEqual(ExpectedFirstPageResults, firstPageUsers.Count());
             Assert.AreEqual(ExpectedSecondPageResults, secondPageUsers.Count());
@@ -123,23 +114,30 @@
             CollectionAssert.AreNotEquivalent(firstPageUsers, secondPageUsers);
         }
 
-        [TestCleanup]
-        public void CleanupScope()
-        {
-            this.transaction.Dispose();
-        }
-
         private static User GetTestUser()
         {
-            var expectedUser = new User
+            var testUser = new User
                                    {
                                        FirstName = "Test Firstname",
                                        LastName = "Test Lastname",
                                        Username = "testuser",
                                        Email = "test@email.com",
-                                       Id = Guid.NewGuid()
+                                       Id = Guid.NewGuid(),
+                                       Profile = GetTestUserProfile()
                                    };
-            return expectedUser;
+            return testUser;
+        }
+
+        private static Profile GetTestUserProfile()
+        {
+            var testProfile = new Profile
+                                  {
+                                      Id = Guid.NewGuid(),
+                                      Bio = "Some test biography sample text",
+                                      AvatarUrl = "http://sampletest.png"
+                                  };
+
+            return testProfile;
         }
     }
 }

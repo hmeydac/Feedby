@@ -55,14 +55,19 @@
   </Choose>
   <ItemGroup>
     <Compile Include="InjectionUnitTest.cs" />
+    <Compile Include="ProfileCatalogTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UserDirectoryTest.cs" />
+    <Compile Include="TransactionalUnitTest.cs" />
+    <Compile Include="UserDirectoryTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Ice.Infrastructure\Ice.Infrastructure.csproj">
       <Project>{f3c5edcf-cdf1-4b5d-98f4-6f6d4f6ebb82}</Project>
       <Name>Ice.Infrastructure</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

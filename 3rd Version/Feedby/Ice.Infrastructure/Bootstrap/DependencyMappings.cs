@@ -16,7 +16,7 @@
 
         public static void RegisterServices(IKernel kernel)
         {
-            kernel.Bind<DbContext>().To<SocialModelContext>().InRequestScope();
+            kernel.Bind<DbContext>().To<IceContext>().InRequestScope();
         }
     }
 }

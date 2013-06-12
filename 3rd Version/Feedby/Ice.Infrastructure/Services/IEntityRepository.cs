@@ -2,13 +2,11 @@ namespace Ice.Infrastructure.Services
 {
     using System.Data.Entity;
 
-    using Ice.Infrastructure.Entities;
-
-    public interface IEntityRepository
+    public interface IEntityRepository<T> where T : class
     {
         DbContext Context { get; set; }
 
-        DbSet<User> DataSet { get; set; }
+        DbSet<T> DataSet { get; set; }
 
         bool CommitChanges();
     }

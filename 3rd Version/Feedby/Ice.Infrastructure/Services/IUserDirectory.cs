@@ -2,9 +2,10 @@ namespace Ice.Infrastructure.Services
 {
     using System;
 
+    using Ice.Infrastructure.DataContext;
     using Ice.Infrastructure.Entities;
 
-    public interface IUserDirectory : IEntityRepository
+    public interface IUserDirectory : IEntityRepository<User>
     {
         User[] GetUsers();
 
